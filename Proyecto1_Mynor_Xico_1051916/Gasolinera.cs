@@ -27,6 +27,8 @@ namespace Proyecto1_Mynor_Xico_1051916
         Formato objFormato = new Formato();
 
         MenuSecundario menu1 = new MenuSecundario("", "Si", "No");
+        MenuSecundario menu2 = new MenuSecundario("", "Manual", "Automática");
+        MenuSecundario menu3 = new MenuSecundario("","Bomba 1", "Bomba 2", "Bomba 3", "Bomba 4", "Bomba 5", "Bomba 6", "Bomba 7");
 
         public void MostrarCombustible()
         {
@@ -38,6 +40,28 @@ namespace Proyecto1_Mynor_Xico_1051916
             string output = strDiesel + strRegular + strSuper;
             objFormato.escribirContenido(output);
         }
+        public void MostrarCombustibleVenta()
+        {
+            string strDiesel = null;
+            string strRegular = null;
+            string strSuper = null;
+
+            objFormato.pregunta("Cantidad de Gasolina en los Depósitos");
+            if (diesel.disponible())
+            {
+                strDiesel = "  La cantidad de gasolina en el depósito de Diesel es:  " + diesel.cantCombustible;
+            }
+            if (regular.disponible())
+            {
+                strRegular = "\n  La cantidad de gasolina en el depósito de Regular es: " + regular.cantCombustible;
+            }
+            if(super.disponible())
+            strSuper = "\n  La cantidad de gasolina en el depósito de Super es:   " + super.cantCombustible;
+
+            string output = strDiesel + strRegular + strSuper;
+            objFormato.escribirContenido(output);
+        }
+
         public void MostrarPrecios()
         {
             objFormato.pregunta("Precios por Galón de Combustible");
@@ -64,6 +88,9 @@ namespace Proyecto1_Mynor_Xico_1051916
                 System.Threading.Thread.Sleep(1200);
             }
         }
+
+        
+
         public void agregarRegular(double cantidad, double costo)
         {
             if ((regular.cantCombustible + cantidad) <= regular.limit)
@@ -181,7 +208,7 @@ namespace Proyecto1_Mynor_Xico_1051916
             }
         }
 
-        void solicitarCombustibleDiesel()
+        public void solicitarCombustibleDiesel()
         {
             double dblCosto=0;
             double dblCantidad=0;
@@ -379,6 +406,12 @@ namespace Proyecto1_Mynor_Xico_1051916
             Console.Clear();
         }
 
+        public void solicitarCombustible()
+        {
+            solicitarCombustibleDiesel();
+            solicitarCombustibleRegular();
+            solicitarCombustibleSuper();
+        }
         private void definirPrecio(Deposito unDeposito)
         {
             bool opcionValida = true;
@@ -426,6 +459,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                         } while (!precioValido);
                         break;
                     case "2":
+                        opcionValida = true;
                         break;
                     default:
                         Console.ResetColor();
@@ -439,26 +473,143 @@ namespace Proyecto1_Mynor_Xico_1051916
             Console.ResetColor();
             Console.Clear();
         }
-        public void solicitarCombustible()
-        {
-            solicitarCombustibleDiesel();
-            solicitarCombustibleRegular();
-            solicitarCombustibleSuper();
-        }
         public void definirPrecios()
         {
-            objFormato.escribirTitulo("Precios de gasolina por depósitos");
-            MostrarPrecios();
-            objFormato.pregunta("¿Desea cambiar el precio por depósitos?");
-            menu1.EscribirMenuSecundario2ST();
-            string strOpcion = Console.ReadLine();
-            Console.ResetColor();
-            Console.Clear();
-            definirPrecio(diesel);
-            definirPrecio(regular);
-            definirPrecio(super);
-            MostrarPrecios();
-            Console.ReadLine();
+            bool opcionValida = false;
+            do {
+                objFormato.escribirTitulo("Precios de gasolina por depósitos");
+                MostrarPrecios();
+                objFormato.pregunta("¿Desea cambiar el precio por depósitos?");
+                menu1.EscribirMenuSecundario2ST();
+                string strOpcion = Console.ReadLine();
+                switch (strOpcion) {
+                    case "1":
+                        opcionValida = true;
+                        Console.ResetColor();
+                        Console.Clear();
+                        definirPrecio(diesel);
+                        definirPrecio(regular);
+                        definirPrecio(super);
+                        MostrarPrecios();
+                        Console.ReadLine();
+                        break;
+                    case "2":
+                        opcionValida = true;
+                        Console.ResetColor();
+                        Console.Clear();
+                        break;
+                    default:
+                        break;
+                }
+            } while (!opcionValida);
         }
+
+        public void tipoDeVenta()
+        {
+            bool opcionValida = false;
+            do
+            {
+                objFormato.mensajeBienvenida("Proceso de Ventas de Combustible");
+                objFormato.pregunta("¿Qué método de venta desea utilizar?");
+                menu2.EscribirMenuSecundario2ST();
+                string opcion = Console.ReadLine();
+                switch (opcion)
+                {
+                    case "1":
+                        opcionValida = true;
+                        Console.ResetColor();
+                        SeleccionarBomba();
+                        break;
+                    case "2":
+                        opcionValida = true;
+                        Console.WriteLine("Programar venta automática de combustible");
+                        break;
+                    default:
+                        objFormato.mensajeError("Debe seleccionar una opción válida");
+                        break;
+                }
+            } while (!opcionValida);
+        }
+
+        internal void venderGasolina()
+        {
+            bool opcionValida = false;
+            do
+            {
+                objFormato.pregunta("¿Desea entrar al proceso de ventas?");
+                menu1.EscribirMenuSecundario2ST();
+                string opcion = Console.ReadLine();
+                switch(opcion) {
+                    case "1":
+                        opcionValida = true;
+                        Console.ResetColor();
+                        Console.Clear();
+                        tipoDeVenta();
+                        break;
+                    case "2":
+                        opcionValida = true;
+                        Console.ResetColor();
+                        Console.Clear();
+                        break;
+                }
+                Console.ResetColor();
+                Console.Clear();
+            } while (!opcionValida);
+        }
+        
+        public void SeleccionarBomba()
+        {
+            bool opcionValida = false;
+            do
+            {
+                Console.ResetColor();
+                Console.Clear();
+                opcionValida = false;
+                objFormato.pregunta("¿Qué bomba desea utilizar?");
+                menu3.EscribiRmenuSecundario7ST();
+                string opcion = Console.ReadLine();
+                Console.ResetColor();
+                Console.Clear();
+                MostrarPrecios();
+                MostrarCombustibleVenta();
+                switch (opcion)
+                {
+                    case "1":
+                        opcionValida = true;
+                        bomba1.Dispensar();
+                        Console.ReadLine();
+                        break;
+                    case "2":
+                        opcionValida = true;
+                        bomba2.Dispensar();
+                        break;
+                    case "3":
+                        opcionValida = true;
+                        bomba3.Dispensar();
+                        break;
+                    case "4":
+                        opcionValida = true;
+                        bomba4.Dispensar();
+                        break;
+                    case "5":
+                        opcionValida = true;
+                        bomba5.Dispensar();
+                        break;
+                    case "6":
+                        opcionValida = true;
+                        bomba6.Dispensar();
+                        break;
+                    case "7":
+                        opcionValida = true;
+                        bomba7.Dispensar();
+                        break;
+                    default:
+                        objFormato.mensajeError("Debe ingresar una opción válida!");
+                        break;
+                }
+
+            } while (!opcionValida);
+        }
+
     }
 }

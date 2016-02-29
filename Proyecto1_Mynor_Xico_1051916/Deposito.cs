@@ -130,6 +130,13 @@ namespace Proyecto1_Mynor_Xico_1051916
             _precioPorGalon = unPrecio;
         }
 
-        
+        public bool disponible()
+        {
+            if (cantCombustible <= 5)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

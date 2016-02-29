@@ -61,8 +61,9 @@ namespace Proyecto1_Mynor_Xico_1051916
                 Console.Clear();
                 objGasolinera.definirPrecios();
                 Console.Clear();
+                objGasolinera.venderGasolina();
+                Console.Clear();
             }
-
             objFormato.escribirContenido("Gracias por utilizar nuestros servicios");
             System.Threading.Thread.Sleep(900);
             objFormato.mensajeExito("Finaliza Programa");

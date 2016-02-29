@@ -10,3 +10,9 @@ C:\Users\Sony i3\Desktop\Proyecto1_Mynor_Xico_1051916 - Copy\Proyecto1_Mynor_Xic
 C:\Users\Sony i3\Desktop\Proyecto1_Mynor_Xico_1051916 - Copy\Proyecto1_Mynor_Xico_1051916\obj\Debug\Proyecto1_Mynor_Xico_1051916.csprojResolveAssemblyReference.cache
 C:\Users\Sony i3\Desktop\Proyecto1_Mynor_Xico_1051916 - Copy\Proyecto1_Mynor_Xico_1051916\bin\Debug\Proyecto1_Mynor_Xico_1051916.exe
 C:\Users\Sony i3\Desktop\Proyecto1_Mynor_Xico_1051916 - Copy\Proyecto1_Mynor_Xico_1051916\bin\Debug\Proyecto1_Mynor_Xico_1051916.pdb
+C:\Users\Sony i3\Desktop\ProyectoGasolinera_Mynor_Xico_1051916\Proyecto1_Mynor_Xico_1051916\bin\Debug\Proyecto1_Mynor_Xico_1051916.exe.config
+C:\Users\Sony i3\Desktop\ProyectoGasolinera_Mynor_Xico_1051916\Proyecto1_Mynor_Xico_1051916\obj\Debug\Proyecto1_Mynor_Xico_1051916.exe
+C:\Users\Sony i3\Desktop\ProyectoGasolinera_Mynor_Xico_1051916\Proyecto1_Mynor_Xico_1051916\obj\Debug\Proyecto1_Mynor_Xico_1051916.pdb
+C:\Users\Sony i3\Desktop\ProyectoGasolinera_Mynor_Xico_1051916\Proyecto1_Mynor_Xico_1051916\bin\Debug\Proyecto1_Mynor_Xico_1051916.exe
+C:\Users\Sony i3\Desktop\ProyectoGasolinera_Mynor_Xico_1051916\Proyecto1_Mynor_Xico_1051916\bin\Debug\Proyecto1_Mynor_Xico_1051916.pdb
+C:\Users\Sony i3\Desktop\ProyectoGasolinera_Mynor_Xico_1051916\Proyecto1_Mynor_Xico_1051916\obj\Debug\Proyecto1_Mynor_Xico_1051916.csprojResolveAssemblyReference.cache

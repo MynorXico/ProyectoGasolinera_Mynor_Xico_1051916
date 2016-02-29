@@ -1,5 +1,4 @@
 ﻿using System;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,11 +12,16 @@ namespace Proyecto1_Mynor_Xico_1051916
         private double _dineroConsumido;
         private Deposito _depositoAUsar;
         private string _label;
+
+        MenuSecundario menu1 = new MenuSecundario("", "Por Galón", "Por Monto de Dinero");
+
         // Constructor de la Clase
         public Bomba(string label)
         {
             _label = label;
         }
+
+        Formato objFormato = new Formato();
 
         public void seleccionarCombustible(Deposito unDeposito)
         {
@@ -26,7 +30,6 @@ namespace Proyecto1_Mynor_Xico_1051916
                 _depositoAUsar = unDeposito;
             }
         }
-
         public string label
         {
             get
@@ -59,7 +62,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                 Console.WriteLine("No es posible realizar la venta. La cantidad actual de combustible en quetzales en el depósito de " + _depositoAUsar.label + " es" + cantidadActual);
                 Console.ReadLine();
             }
-        }
+        }   
         public void venderPorGalones(double cantidadGalones)
         {
             double cantidadQuetzales = cantidadGalones * _depositoAUsar.precioPorGalon;
@@ -88,5 +91,31 @@ namespace Proyecto1_Mynor_Xico_1051916
             return (a + b);
         }
 
+        public void Dispensar()
+        {
+            
+        }
+
+        private void TipoDeVenta()
+        {
+            bool opcionValida = false;
+            do {
+                objFormato.pregunta("¿Qué tipo de venta desea realizar?");
+                menu1.EscribirMenuSecundario2ST();
+                string opcion = Console.ReadLine();
+                switch (opcion)
+                {
+                    case "1":
+                        opcionValida = true;
+                        break;
+                    case "2":
+                        opcionValida = true;
+                        break;
+                    default:
+                        objFormato.mensajeError("Por favor seleccione una opción válida");
+                        break;
+                }
+            } while (!opcionValida);
+        }
     }
 }
