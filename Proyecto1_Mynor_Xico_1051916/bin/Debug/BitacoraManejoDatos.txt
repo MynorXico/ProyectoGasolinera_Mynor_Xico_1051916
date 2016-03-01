@@ -1,0 +1,48 @@
+2/29/2016 5:43:51 PM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+2/29/2016 5:43:51 PM Está mal configurada la cantidad de combustible o monto de dinero (línea: 2)
+2/29/2016 5:43:51 PM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+2/29/2016 5:43:58 PM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+2/29/2016 5:43:58 PM Está mal configurada la cantidad de combustible o monto de dinero (línea: 2)
+2/29/2016 5:43:58 PM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+2/29/2016 5:47:47 PM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+2/29/2016 5:48:13 PM Está mal configurada la cantidad de combustible o monto de dinero (línea: 2)
+2/29/2016 5:48:22 PM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+2/29/2016 6:12:59 PM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+2/29/2016 6:12:59 PM Está mal configurada la cantidad de combustible o monto de dinero (línea: 2)
+2/29/2016 6:12:59 PM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+2/29/2016 6:14:07 PM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+2/29/2016 6:14:07 PM Está mal configurada la cantidad de combustible o monto de dinero (línea: 2)
+2/29/2016 6:14:07 PM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+2/29/2016 6:14:39 PM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+2/29/2016 6:14:39 PM Está mal configurada la cantidad de combustible o monto de dinero (línea: 2)
+2/29/2016 6:14:39 PM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+2/29/2016 6:17:17 PM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+2/29/2016 6:17:17 PM Está mal configurada la cantidad de combustible o monto de dinero (línea: 2)
+2/29/2016 6:17:17 PM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+2/29/2016 10:27:31 PM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+2/29/2016 10:27:31 PM Está mal configurada la cantidad de combustible o monto de dinero (línea: 2)
+2/29/2016 10:27:31 PM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+2/29/2016 11:01:55 PM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+2/29/2016 11:01:55 PM Está mal configurada la cantidad de combustible o monto de dinero (línea: 2)
+2/29/2016 11:01:55 PM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+2/29/2016 11:02:58 PM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+2/29/2016 11:02:58 PM Está mal configurada la cantidad de combustible o monto de dinero (línea: 2)
+2/29/2016 11:02:58 PM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+2/29/2016 11:25:02 PM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+2/29/2016 11:25:02 PM Está mal configurada la cantidad de combustible o monto de dinero (línea: 2)
+2/29/2016 11:25:02 PM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+2/29/2016 11:37:11 PM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+2/29/2016 11:37:11 PM Está mal configurada la cantidad de combustible o monto de dinero (línea: 2)
+2/29/2016 11:37:11 PM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+

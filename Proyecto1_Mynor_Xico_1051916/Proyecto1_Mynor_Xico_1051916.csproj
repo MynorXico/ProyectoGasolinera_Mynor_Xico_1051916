@@ -47,6 +47,8 @@
     <Compile Include="Deposito.cs" />
     <Compile Include="Formato.cs" />
     <Compile Include="Gasolinera.cs" />
+    <Compile Include="ManejoDatos.cs" />
+    <Compile Include="Procesos.cs" />
     <Compile Include="MenuPrincipal.cs" />
     <Compile Include="MenuSecundario.cs" />
     <Compile Include="Program.cs" />

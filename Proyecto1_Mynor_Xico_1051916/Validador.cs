@@ -11,6 +11,8 @@ namespace Proyecto1_Mynor_Xico_1051916
     */
     class Validador
     {
+        Formato objFormato = new Formato();
+      
         public bool esNumeroEntero(string num)
         {
             try
@@ -21,10 +23,8 @@ namespace Proyecto1_Mynor_Xico_1051916
             catch
             {
                 Console.ResetColor();
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Por favor ingrese un número válido");
-                System.Threading.Thread.Sleep(1200);
-                Console.Clear();
+                objFormato.mensajeError("Por favor ingrese un número válido");
+                Console.ResetColor();
                 return false;
             }
             return true;
@@ -38,10 +38,8 @@ namespace Proyecto1_Mynor_Xico_1051916
             }
             catch
             {
+                objFormato.mensajeError("Por favor ingrese un número válido");
                 Console.ResetColor();
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Número inválido");
-                System.Threading.Thread.Sleep(1200);
                 return false;
             }
             return true;
@@ -50,8 +48,10 @@ namespace Proyecto1_Mynor_Xico_1051916
         {
             if (num > 0)
             {
+                Console.ResetColor();
                 return true;
             }
+            Console.ResetColor();
             return false;
         }
     }

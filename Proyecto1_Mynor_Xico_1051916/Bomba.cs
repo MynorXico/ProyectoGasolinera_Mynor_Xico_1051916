@@ -8,12 +8,14 @@ namespace Proyecto1_Mynor_Xico_1051916
 {
     class Bomba
     {
+        // Definición de atributos de la 
         private double _combustibleConsumido;
         private double _dineroConsumido;
-        private Deposito _depositoAUsar;
         private string _label;
 
+
         MenuSecundario menu1 = new MenuSecundario("", "Por Galón", "Por Monto de Dinero");
+        MenuSecundario menu2 = new MenuSecundario("", "Diesel", "Regular", "Super");
 
         // Constructor de la Clase
         public Bomba(string label)
@@ -21,7 +23,9 @@ namespace Proyecto1_Mynor_Xico_1051916
             _label = label;
         }
 
+        Deposito _depositoAUsar;
         Formato objFormato = new Formato();
+        Validador objValidador = new Validador();
 
         public void seleccionarCombustible(Deposito unDeposito)
         {
@@ -91,31 +95,55 @@ namespace Proyecto1_Mynor_Xico_1051916
             return (a + b);
         }
 
-        public void Dispensar()
-        {
-            
-        }
 
-        private void TipoDeVenta()
+        public void Dispensar(Deposito unDeposito, int tipoDeVenta)
         {
-            bool opcionValida = false;
-            do {
-                objFormato.pregunta("¿Qué tipo de venta desea realizar?");
-                menu1.EscribirMenuSecundario2ST();
-                string opcion = Console.ReadLine();
-                switch (opcion)
+            double dblCantidad = 0;
+            bool cantidadValida = false;
+            do { 
+                Console.WriteLine("Ingrese la cantidad de " + unDeposito.label + " que desea vender");
+                string strCantidad = Console.ReadLine();
+                Console.ResetColor();
+                if (objValidador.esNumeroDouble(strCantidad))
                 {
-                    case "1":
-                        opcionValida = true;
-                        break;
-                    case "2":
-                        opcionValida = true;
-                        break;
-                    default:
-                        objFormato.mensajeError("Por favor seleccione una opción válida");
-                        break;
+                    dblCantidad = double.Parse(strCantidad);
+                    if (objValidador.esPositivo(dblCantidad))
+                    {
+                        cantidadValida = true;
+                    }
+                    else
+                    {
+                        objFormato.mensajeError("Ingresó una cantidad no válida");
+                    }
                 }
-            } while (!opcionValida);
+                else
+                {
+                    objFormato.mensajeError("Ingrese una cantidad válida por favor");
+                }Console.Clear();    
+            } while (!cantidadValida);
+            switch (tipoDeVenta){
+                case 1:
+                    _combustibleConsumido += dblCantidad;
+                    _dineroConsumido += dblCantidad * unDeposito.precioPorGalon;
+                    unDeposito.venderCombustible(dblCantidad);
+                    break;
+                case 2:
+                    _combustibleConsumido += dblCantidad / unDeposito.precioPorGalon;
+                    _dineroConsumido += dblCantidad;
+                    unDeposito.venderCombustible(dblCantidad / unDeposito.precioPorGalon);
+                    break;
+            }
         }
+        public void mostrarVentas()
+        {
+            objFormato.escribirTitulo(_label);
+            Console.WriteLine("Cantidad vendida en Galones: " + Math.Round(_combustibleConsumido, 2));
+            Console.WriteLine("Cantidad vendida en Quetzales: " + Math.Round(_dineroConsumido, 2));
+            Console.WriteLine("********************************************");
+            Console.ReadLine();
+        }
+        
+        
+        
     }
 }

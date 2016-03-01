@@ -10,6 +10,8 @@ namespace Proyecto1_Mynor_Xico_1051916
     {
         Validador objValidador = new Validador();
         Formato objFormato = new Formato();
+        MenuSecundario menu1 = new MenuSecundario("", "Si", "No");
+
 
         private double _cantCombustible;
         private double _limit;
@@ -20,7 +22,11 @@ namespace Proyecto1_Mynor_Xico_1051916
 
         private double _combustibleConsumido;
         private double _dineroConsumido;
+        private double _comprasQuetzales;
 
+        public Deposito()
+        {
+        }
         public Deposito(double unaCantidad, double unCosto, double unPrecio, string label)
         {
             _cantCombustible = unaCantidad;
@@ -117,17 +123,65 @@ namespace Proyecto1_Mynor_Xico_1051916
                 _dineroConsumido = value;
             }
         }
+        public double comprasQuetzales
+        {
+            get
+            {
+                return _comprasQuetzales;
+            }set
+            {
+                _comprasQuetzales = value;
+            }
+        }
+
 
         public void ingresarCombustible(double cantidad, double costo)
         {
             {
                 _costoPorGalon = (_cantCombustible * _costoPorGalon + cantidad * costo) / (_cantCombustible + cantidad);
                 _cantCombustible += cantidad;
+                _comprasQuetzales += cantidad * costo;
             }            
         }
         public void indicarNuevoPrecio(double unPrecio)
         {
             _precioPorGalon = unPrecio;
+        }
+        public void venderCombustible(double cantidad)
+        {
+            if (_cantCombustible < cantidad)
+            {
+                objFormato.mensajeError("No es posible realizar la venta");
+                bool opcionValida = false;
+                do
+                {
+                    objFormato.mensajeError("La cantidad disponible en el depósito de " + label + " es de " + cantCombustible + " Galones (Q " + cantCombustible*precioPorGalon+")");
+                    objFormato.pregunta("¿Desea vender esa cantidad??");
+                    menu1.EscribirMenuSecundario2ST();
+                    string opcion = Console.ReadLine();
+                    Console.ResetColor();
+                    switch (opcion)
+                    {
+                        case "1":
+                            opcionValida = true;
+                            venderCombustible(_cantCombustible);
+                            break;
+                        case "2":
+                            opcionValida = true;
+                            break;
+                        default:
+                            objFormato.mensajeError("Seleccione una opción válida");
+                            Console.Clear();
+                            break;
+                    }
+                } while (!opcionValida);
+                                
+            }
+            else
+            {
+                _cantCombustible -= cantidad;
+                _combustibleConsumido += cantidad;
+            }
         }
 
         public bool disponible()
@@ -137,6 +191,15 @@ namespace Proyecto1_Mynor_Xico_1051916
                 return false;
             }
             return true;
+        }
+
+        public void mostrarVentas()
+        {
+            objFormato.escribirTitulo(_label);
+            Console.WriteLine("Cantidad vendida en Galones: " + Math.Round(_combustibleConsumido, 2));
+            Console.WriteLine("Cantidad vendida en Quetzales: " + Math.Round(_dineroConsumido, 2));
+            Console.WriteLine("********************************************");
+            Console.ReadLine();
         }
     }
 }
