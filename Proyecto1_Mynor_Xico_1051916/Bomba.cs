@@ -22,12 +22,16 @@ namespace Proyecto1_Mynor_Xico_1051916
         {
             _label = label;
         }
+        public Bomba()
+        {
 
-        Deposito _depositoAUsar;
+        }
+
+        public Deposito _depositoAUsar;
         Formato objFormato = new Formato();
         Validador objValidador = new Validador();
 
-        public void seleccionarCombustible(Deposito unDeposito)
+        public void seleccionarCombustible(ref Deposito unDeposito)
         {
             if (unDeposito.cantCombustible <= unDeposito.inventarioMinimo)
             {
@@ -58,6 +62,8 @@ namespace Proyecto1_Mynor_Xico_1051916
 
                 _depositoAUsar.combustibleConsumido += cantidadGalones;
                 _depositoAUsar.dineroConsumido += cantidadQuetzales;
+
+                objFormato.mensajeExito("Se agregaron " + cantidadGalones +" galones " + "("+cantidadQuetzales+") de gasolina");
             }
             else
             {
@@ -79,6 +85,8 @@ namespace Proyecto1_Mynor_Xico_1051916
 
                 _depositoAUsar.combustibleConsumido += cantidadGalones;
                 _depositoAUsar.dineroConsumido += cantidadQuetzales;
+                objFormato.mensajeExito("Se agregaron " + cantidadGalones + " galones " + "(" + cantidadQuetzales + ") de gasolina");
+
             }
             else
             {

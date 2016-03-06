@@ -25,6 +25,7 @@ namespace Proyecto1_Mynor_Xico_1051916
         // Instanciación de clase Validador
         Validador objValidador = new Validador();
 
+        VentasAutomáticas ventas = new VentasAutomáticas();
 
         /// <summary>
         /// Constructor de la clase MenuPrincipal sin atributos
@@ -99,7 +100,9 @@ namespace Proyecto1_Mynor_Xico_1051916
             System.Threading.Thread.Sleep(900);
             objFormato.mensajeExito("Finaliza Programa");
 
+
         }
 
+        
     }
 }

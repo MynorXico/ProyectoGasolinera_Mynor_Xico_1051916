@@ -37,11 +37,12 @@ namespace Proyecto1_Mynor_Xico_1051916
 
         Gasolinera gasolineraVentas = new Gasolinera();
         ManejoDatos objManejoDatos = new ManejoDatos();
+        
 
         // Instanciación de menus que se utilizarán durante la ejecución del programa
         MenuSecundario objMenu1 = new MenuSecundario("", "Si", "No");
         MenuSecundario objMenu2 = new MenuSecundario("", "Manual", "Automática");
-        MenuSecundario objMenu3 = new MenuSecundario("","Bomba 1", "Bomba 2", "Bomba 3", "Bomba 4", "Bomba 5", "Bomba 6", "Bomba 7");
+        MenuSecundario objMenu3 = new MenuSecundario("", "Bomba 1", "Bomba 2", "Bomba 3", "Bomba 4", "Bomba 5", "Bomba 6", "Bomba 7");
         MenuSecundario objMenu4 = new MenuSecundario("Tipos de Combustible", "Diesel", "Regular", "Super");
         MenuSecundario objMenu5 = new MenuSecundario("", "Por Gálón", "Por Quetzales");
 
@@ -50,6 +51,7 @@ namespace Proyecto1_Mynor_Xico_1051916
         /// </summary>
         public void MostrarCombustible()
         {
+            
             objFormato.pregunta("Cantidad de Gasolina en los Depósitos");
             string strDiesel = "  La cantidad de gasolina en el depósito de Diesel es:  " + Math.Round(objDepositoDiesel.cantCombustible, 2);
             string strRegular = "\n  La cantidad de gasolina en el depósito de Regular es: " + Math.Round(objDepositoRegular.cantCombustible, 2);
@@ -77,8 +79,8 @@ namespace Proyecto1_Mynor_Xico_1051916
             {
                 strRegular = "\n  La cantidad de gasolina en el depósito de Regular es: " + Math.Round(objDepositoRegular.cantCombustible, 2);
             }
-            if(objDepositoSuper.disponible())
-            strSuper = "\n  La cantidad de gasolina en el depósito de Super es:   " + Math.Round(objDepositoSuper.cantCombustible, 2);
+            if (objDepositoSuper.disponible())
+                strSuper = "\n  La cantidad de gasolina en el depósito de Super es:   " + Math.Round(objDepositoSuper.cantCombustible, 2);
             string output = strDiesel + strRegular + strSuper;
             objFormato.escribirContenido(output);
         }
@@ -204,7 +206,7 @@ namespace Proyecto1_Mynor_Xico_1051916
             }
             objDepositoSuper.precioPorGalon = precio;
         }
-         
+
         /// <summary>
         /// Propiedades para asignar y obtener la cantidada de diesel actual
         /// </summary>
@@ -279,8 +281,8 @@ namespace Proyecto1_Mynor_Xico_1051916
         /// </summary>
         public void solicitarCombustibleDiesel()
         {
-            double dblCosto=0;
-            double dblCantidad=0;
+            double dblCosto = 0;
+            double dblCantidad = 0;
             bool costoValido = false;
             bool cantidadValida = false;
             bool continuar = true;
@@ -297,17 +299,17 @@ namespace Proyecto1_Mynor_Xico_1051916
                     // Si el usuario escribe 1, desea ingresar combustible a los depósitos
                     case "1":
                         do {
-                                Console.ResetColor();
-                                Console.Clear();
-                                Console.WriteLine("Ingrese la cantidad de " + objDepositoDiesel.label + " en galones que desea ingresar:");
-                                string strCantidad = Console.ReadLine();
-                                // Valida que la cantidad de galones ingresada sea un número real
-                                if (objValidador.esNumeroDouble(strCantidad))
-                                {
-                                    dblCantidad = double.Parse(strCantidad);
-                                    cantidadValida = true;
-                                }
-                            } while (!cantidadValida);
+                            Console.ResetColor();
+                            Console.Clear();
+                            Console.WriteLine("Ingrese la cantidad de " + objDepositoDiesel.label + " en galones que desea ingresar:");
+                            string strCantidad = Console.ReadLine();
+                            // Valida que la cantidad de galones ingresada sea un número real
+                            if (objValidador.esNumeroDouble(strCantidad))
+                            {
+                                dblCantidad = double.Parse(strCantidad);
+                                cantidadValida = true;
+                            }
+                        } while (!cantidadValida);
                         do
                         {
                             Console.ResetColor();
@@ -319,7 +321,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                             {
                                 dblCosto = double.Parse(strCosto);
                                 costoValido = true;
-                                if (objValidador.esPositivo(dblCosto) && objValidador.esPositivo(dblCantidad)){
+                                if (objValidador.esPositivo(dblCosto) && objValidador.esPositivo(dblCantidad)) {
                                     agregarDiesel(dblCantidad, dblCosto);
                                 }
                                 else
@@ -373,7 +375,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                         {
                             Console.ResetColor();
                             Console.Clear();
-                            Console.WriteLine("Ingrese la cantidad de "+objDepositoRegular.label + " en galones que desea ingresar:");
+                            Console.WriteLine("Ingrese la cantidad de " + objDepositoRegular.label + " en galones que desea ingresar:");
                             string strCantidad = Console.ReadLine();
                             if (objValidador.esNumeroDouble(strCantidad))
                             {
@@ -491,7 +493,7 @@ namespace Proyecto1_Mynor_Xico_1051916
             } while (continuar);
             Console.Clear();
         }
-        
+
         /// <summary>
         ///  Método que permite al usuario decidir si deseea ingresar diesel, regular o super
         /// </summary>
@@ -607,7 +609,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                         Console.Clear();
                         break;
                     default:
-                    // Si no selecciona 1 o 2, se solicita de nuevo una opción
+                        // Si no selecciona 1 o 2, se solicita de nuevo una opción
                         Console.ResetColor();
                         objFormato.mensajeError("Ingrese una opción válida");
                         Console.Clear();
@@ -704,7 +706,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                 objFormato.pregunta("¿Desea entrar al proceso de ventas?");
                 objMenu1.EscribirMenuSecundario2ST();
                 string opcion = Console.ReadLine();
-                switch(opcion) {
+                switch (opcion) {
                     case "1":
                         // Si selecciona 1, se define el tipo de venta que se realizará
                         opcionValida = true;
@@ -730,8 +732,8 @@ namespace Proyecto1_Mynor_Xico_1051916
             } while (!opcionValida);
         }
 
-        
-      
+
+
         /// <summary>
         /// Método que permite seleccionar la bomba que se utilizará para la venta
         /// </summary>
@@ -805,7 +807,6 @@ namespace Proyecto1_Mynor_Xico_1051916
                 }
             } while (!opcionValida);
         }
-        
         /// <summary>
         ///  Método que se utiliza para solicitar el tipo de combustible que se utilizará en la venta
         /// </summary>
@@ -825,7 +826,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                     case "1":
                         // Se utilizará el depósito de diesel
                         depositoSeleccionado = objDepositoDiesel;
-                        opcionValida = true;                        
+                        opcionValida = true;
                         break;
                     case "2":
                         // Se utilizará el depósito de regular
@@ -889,7 +890,7 @@ namespace Proyecto1_Mynor_Xico_1051916
         /// </summary>
         private void ventaAutomatica()
         {
-            objManejoDatos.CargaryEjecutarDatosArchivo(@"C:\Ejemplo.txt", gasolineraVentas);
+            objManejoDatos.CargaryEjecutarDatosArchivo(@"C:\Ejemplo.txt", gasolineraVentas, objDepositoDiesel, objDepositoRegular, objDepositoSuper, objBomba1, objBomba2, objBomba3, objBomba4, objBomba5, objBomba6, objBomba7);
 
             gasolineraVentas.EjecutarAccion(4, 5, 6, 7);
         }
@@ -902,7 +903,7 @@ namespace Proyecto1_Mynor_Xico_1051916
         private void calcularVentas(ref double combustible, ref double dinero)
         {
             combustible = objDepositoDiesel.combustibleConsumido + objDepositoRegular.combustibleConsumido + objDepositoSuper.combustibleConsumido;
-            dinero = objDepositoDiesel.combustibleConsumido * objDepositoDiesel.precioPorGalon + objDepositoRegular.combustibleConsumido * objDepositoRegular.precioPorGalon + objDepositoSuper.combustibleConsumido * objDepositoSuper.precioPorGalon;           
+            dinero = objDepositoDiesel.combustibleConsumido * objDepositoDiesel.precioPorGalon + objDepositoRegular.combustibleConsumido * objDepositoRegular.precioPorGalon + objDepositoSuper.combustibleConsumido * objDepositoSuper.precioPorGalon;
         }
 
         /// <summary>
@@ -993,5 +994,18 @@ namespace Proyecto1_Mynor_Xico_1051916
             mostrarGanancia();
         }
 
+
+        /*
+            Comienza preuba de ventas automáticas
+        */
+        Gasolinera a = new Gasolinera();
+        public void vender()
+        {
+            ManejoDatos operador = new ManejoDatos();
+            VentasAutomáticas ventas = new VentasAutomáticas();
+
+            // operador.CargaryEjecutarDatosArchivo("C://Ejemplo.txt", a, );
+            Console.ReadLine();
+        }
     }
 }
