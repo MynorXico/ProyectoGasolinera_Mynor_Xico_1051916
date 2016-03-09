@@ -15,7 +15,6 @@ namespace Proyecto1_Mynor_Xico_1051916
         MenuSecundario objMenu1 = new MenuSecundario("Tipo de Gasolina", "Diesel", "Regular", "Super", "Salir");
         MenuSecundario objMenu2 = new MenuSecundario("", "Si", "No");
 
-
         // Instanciación de clase en la que se ejecutan las instrucciones para la interacción con el usaurio
         Procesos objProcesos = new Procesos();
 
@@ -47,55 +46,25 @@ namespace Proyecto1_Mynor_Xico_1051916
         /// </summary>
         public void pantallaPrincipal()
         {
-            bool opcionValida = false;
-            do
-            {// Solicita al usuario si desea o no ingresar gasaolina a los depósitos
-                Console.Clear();
-                objFormato.escribirTitulo("Cantidad de gasolina en los depósitos");
-                objProcesos.MostrarCombustible();
-                objFormato.pregunta("¿Desea ingresar combustible a los depósitos?");
-                objMenu2.EscribirMenuSecundario2ST();
-                string strOpcion = Console.ReadLine();
-                // En caso de ingresar una opción no válida, solicita nuevamente al usuario el ingreso de una.
-                while (!objValidador.esNumeroEntero(strOpcion))
-                {
-                    Console.Beep();
-                    Console.Clear();
-                    objFormato.escribirTitulo("Cantidad de gasolina en los depósitos");
-                    objProcesos.MostrarCombustible();
-                    objFormato.pregunta("¿Desea ingresar combustible a los depósitos?");
-                    objMenu2.EscribirMenuSecundario2ST();
-                    strOpcion = Console.ReadLine();
-                }
-
-                // Realiza la conversión una vez seguro de que la opción ingresada puese ser convertida a un entero
-                int intOpcion = Convert.ToInt32(strOpcion);
-                if (intOpcion == 1)
-                {
-                    opcionValida = true;
-                    Console.Clear();
-                    objProcesos.solicitarCombustible();
-                }
-                if (intOpcion == 1 || intOpcion == 2)
-                {
-                    opcionValida = true;
-                    Console.Clear();
-                    // Abre menú para la definición de nuevos precios
-                    objProcesos.definirPrecios();
-                    Console.Clear();
-                    // Abre menú para la venta de Gasolina
-                    objProcesos.venderGasolina();
-                    Console.Clear();
-                    // Muestra la información de ventas
-                    objProcesos.mostrarInformacionVentas();
-                    Console.ReadLine();
-                }
-                else
-                {
-                    objFormato.mensajeError("Escriba una opción válida");
-                }
-            } while (!opcionValida);
+            objFormato.mensajeBienvenida("    ***Bienvenido a GASTROL***");
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadKey();
+            // Abre menú para agregar combustible
+            objProcesos.solicitarCombustible();
+            Console.Clear();
+            // Abre menú para la definición de nuevos precios
+            objProcesos.definirPrecios();
+            Console.Clear();
+            // Abre menú para la venta de Gasolina
+            objProcesos.venderGasolina();
+            Console.Clear();
+            // Muestra la información de ventas
+            objProcesos.mostrarInformacionVentas();
+            Console.ReadLine();
             // Mensaje de Despedida
+
+
+
             objFormato.escribirContenido("Gracias por utilizar nuestros servicios");
             System.Threading.Thread.Sleep(900);
             objFormato.mensajeExito("Finaliza Programa");

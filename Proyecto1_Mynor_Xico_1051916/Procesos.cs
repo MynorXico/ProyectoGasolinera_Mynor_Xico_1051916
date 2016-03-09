@@ -735,9 +735,37 @@ namespace Proyecto1_Mynor_Xico_1051916
         /// </summary>
         public void solicitarCombustible()
         {
-            solicitarCombustibleDeposito(objDepositoDiesel);
-            solicitarCombustibleDeposito(objDepositoRegular);
-            solicitarCombustibleDeposito(objDepositoSuper);
+            bool opcionValida = false;
+            do
+            {
+                Console.Clear();
+                //Pregunta al usuario si desea ingresar combustible a los depósitos
+                MostrarCombustible();
+                objFormato.pregunta("Desea ingresar combustible a los depósitos");
+                objMenu1.EscribirMenuSecundario2ST();
+                string strOpcion = Console.ReadLine();
+                switch (strOpcion)
+                {
+                    case "1":
+                        opcionValida = true;
+                        Console.ResetColor();
+                        Console.Clear();
+                        solicitarCombustibleDeposito(objDepositoDiesel);
+                        solicitarCombustibleDeposito(objDepositoRegular);
+                        solicitarCombustibleDeposito(objDepositoSuper);
+                        break;
+                    case "2":
+                        opcionValida = true;
+                        Console.ResetColor();
+                        Console.Clear();
+                        break;
+                    default:
+                        Console.ResetColor();
+                        objFormato.mensajeError("Ingrese una opción válida");
+                        Console.Clear();
+                        break;
+                }
+            } while (!opcionValida);
         }  
         /// <summary>
         ///  Método que precmite definir el precio de los tres depósitos de combustible
