@@ -9,13 +9,16 @@ namespace Proyecto1_Mynor_Xico_1051916
 {
     public class Procesos
     {
-        // Definición de atributos de clas Procesos
+        // Definición de atributos de clases Procesos
+        #region Atributos
         double _combustibleConsumido;
         double _dineroConsumido;
         double _comprasQuetzales;
         double _ganancia;
+        #endregion
 
         // Instanciación de los 7 objetos Bomba que operarán en la gasolinera
+        #region Instanciación de Bombas
         Bomba objBomba1 = new Bomba("Bomba 1");
         Bomba objBomba2 = new Bomba("Bomba 2");
         Bomba objBomba3 = new Bomba("Bomba 3");
@@ -23,190 +26,38 @@ namespace Proyecto1_Mynor_Xico_1051916
         Bomba objBomba5 = new Bomba("Bomba 5");
         Bomba objBomba6 = new Bomba("Bomba 6");
         Bomba objBomba7 = new Bomba("Bomba 7");
+        #endregion
 
         // Instanciación de los 3 objetos Depósito que operarán en la gasolinera
+        #region Instanciación de Depósitos
         Deposito objDepositoDiesel = new Deposito(50, 11, 13.5, "Diesel");
         Deposito objDepositoRegular = new Deposito(30, 12.5, 17, "Regular");
         Deposito objDepositoSuper = new Deposito(30, 14.5, 19, "Super");
+        #endregion
 
-        // Instanciación de objeto Validador
+        // Instanciación de objetos auxiliares
+        #region Instanciación de objetos auxiliares
         Validador objValidador = new Validador();
-
-        // Instanciación de objeto Formato
         Formato objFormato = new Formato();
+        #endregion
 
+        // Instaciación de Objetos para Ventas Automáticas
+        #region Instanciación de Objetos para Ventas Automáticas
         Gasolinera gasolineraVentas = new Gasolinera();
         ManejoDatos objManejoDatos = new ManejoDatos();
-        
+        #endregion
 
         // Instanciación de menus que se utilizarán durante la ejecución del programa
+        #region Instanciación de submenús del programa
         MenuSecundario objMenu1 = new MenuSecundario("", "Si", "No");
         MenuSecundario objMenu2 = new MenuSecundario("", "Manual", "Automática");
         MenuSecundario objMenu3 = new MenuSecundario("", "Bomba 1", "Bomba 2", "Bomba 3", "Bomba 4", "Bomba 5", "Bomba 6", "Bomba 7");
         MenuSecundario objMenu4 = new MenuSecundario("Tipos de Combustible", "Diesel", "Regular", "Super");
         MenuSecundario objMenu5 = new MenuSecundario("", "Por Gálón", "Por Quetzales");
-
-        /// <summary>
-        /// Método que muestra al usuario la cantidad de combustible en cada uno de los tres depósitos
-        /// </summary>
-        public void MostrarCombustible()
-        {
-            
-            objFormato.pregunta("Cantidad de Gasolina en los Depósitos");
-            string strDiesel = "  La cantidad de gasolina en el depósito de Diesel es:  " + Math.Round(objDepositoDiesel.cantCombustible, 2);
-            string strRegular = "\n  La cantidad de gasolina en el depósito de Regular es: " + Math.Round(objDepositoRegular.cantCombustible, 2);
-            string strSuper = "\n  La cantidad de gasolina en el depósito de Super es:   " + Math.Round(objDepositoSuper.cantCombustible, 2);
-
-            string output = strDiesel + strRegular + strSuper;
-            objFormato.escribirContenido(output);
-        }
-
-        /// <summary>
-        /// Método que muestra al usuario la cantidad de combustible disponible para la venta
-        /// </summary>
-        public void MostrarCombustibleVenta()
-        {
-            string strDiesel = null;
-            string strRegular = null;
-            string strSuper = null;
-            // Muestra el depósito únicamente si hay combustible disponible para la venta
-            objFormato.pregunta("Cantidad de Gasolina en los Depósitos");
-            if (objDepositoDiesel.disponible())
-            {
-                strDiesel = "  La cantidad de gasolina en el depósito de Diesel es:  " + Math.Round(objDepositoDiesel.cantCombustible, 2);
-            }
-            if (objDepositoRegular.disponible())
-            {
-                strRegular = "\n  La cantidad de gasolina en el depósito de Regular es: " + Math.Round(objDepositoRegular.cantCombustible, 2);
-            }
-            if (objDepositoSuper.disponible())
-                strSuper = "\n  La cantidad de gasolina en el depósito de Super es:   " + Math.Round(objDepositoSuper.cantCombustible, 2);
-            string output = strDiesel + strRegular + strSuper;
-            objFormato.escribirContenido(output);
-        }
-
-        /// <summary>
-        /// Método que muestra al usuario los precios de cada tipo de combustible por Galón.
-        /// </summary>
-        public void MostrarPrecios()
-        {
-            objFormato.pregunta("Precios por Galón de Combustible");
-            string strDiesel = "  El precio por galón del Diesel es:    Q." + Math.Round(objDepositoDiesel.precioPorGalon, 2);
-            string strRegular = "\n  El precio por galón de Regular es:    Q." + Math.Round(objDepositoRegular.precioPorGalon, 2);
-            string strSuper = "\n  El precio por galón de Súper es:      Q." + Math.Round(objDepositoSuper.precioPorGalon, 2);
-
-            string output = strDiesel + strRegular + strSuper;
-            objFormato.escribirContenido(output);
-        }
-
-        /// <summary>
-        /// Método para agregar Diesel
-        /// </summary>
-        /// <param name="cantidad"></param>
-        /// <param name="costo"></param>
-        public void agregarDiesel(double cantidad, double costo)
-        {
-            if ((objDepositoDiesel.cantCombustible + cantidad) <= objDepositoDiesel.limit)
-            {
-                objDepositoDiesel.ingresarCombustible(cantidad, costo);
-                objFormato.mensajeExito("El Diesel se agregó correctamente");
-                System.Threading.Thread.Sleep(1200);
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Operación inválida. La cantidad ingresada supera la capacidad del depósito.");
-                System.Threading.Thread.Sleep(1200);
-            }
-        }
-        /// <summary>
-        /// Método para agregar Regular
-        /// </summary>
-        /// <param name="cantidad"></param>
-        /// <param name="costo"></param>
-        public void agregarRegular(double cantidad, double costo)
-        {
-            if ((objDepositoRegular.cantCombustible + cantidad) <= objDepositoRegular.limit)
-            {
-                objDepositoRegular.ingresarCombustible(cantidad, costo);
-                objFormato.mensajeExito("El Regular se agregó correctamente");
-                System.Threading.Thread.Sleep(1200);
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Operación inválida. La cantidad ingresada supera la capacidad del depósito.");
-                Console.ReadLine();
-            }
-        }
-        /// <summary>
-        /// Método para agregar Super
-        /// </summary>
-        /// <param name="cantidad"></param>
-        /// <param name="costo"></param>
-        public void agregarSuper(double cantidad, double costo)
-        {
-            if ((objDepositoSuper.cantCombustible + cantidad) <= objDepositoSuper.limit)
-            {
-                objDepositoSuper.ingresarCombustible(cantidad, costo);
-                objFormato.mensajeExito("El súper se agregó correctamente");
-                System.Threading.Thread.Sleep(1200);
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Operación inválida. La cantidad ingresada supera la capacidad del depósito");
-                Console.ReadLine();
-            }
-        }
-
-        /// <summary>
-        /// Método que se utiliza para fijar el precio del diesel
-        /// </summary>
-        /// <param name="precio"></param>
-        public void fijarPrecioDiesel(double precio)
-        {
-            if (precio > objDepositoDiesel.costoPorGalon)
-            {
-                objDepositoDiesel.precioPorGalon = precio;
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("El precio por galón indicado generará pérdidas a la gasolinera.");
-                Console.ReadLine();
-            }
-        }
-        /// <summary>
-        /// Método que se utiliza para fijar el precio del depósito de regular
-        /// </summary>
-        /// <param name="precio"></param>
-        public void fijarPrecioRegular(double precio)
-        {
-            if (precio > objDepositoRegular.costoPorGalon)
-            {
-                objDepositoRegular.precioPorGalon = precio;
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("El precio por galón indicado generará pérdidas a la gasolinera");
-                Console.ReadLine();
-            }
-        }
-        /// <summary>
-        /// Método que se utiliza para fijar el precio del depósito de súper
-        /// </summary>
-        /// <param name="precio"></param>
-        public void fijarPrecioSuper(double precio)
-        {
-            if (precio > objDepositoSuper.costoPorGalon)
-            {
-                objDepositoSuper.precioPorGalon = precio;
-            }
-            objDepositoSuper.precioPorGalon = precio;
-        }
-
+        #endregion
+        
+        // Cantidad de Combustible de Cada Depósito
+        #region Cantidad de Combustible de Cada Depósito
         /// <summary>
         /// Propiedades para asignar y obtener la cantidada de diesel actual
         /// </summary>
@@ -240,6 +91,10 @@ namespace Proyecto1_Mynor_Xico_1051916
         /// <summary>
         /// Propiedad para obtener el límite de los tres combustibles
         /// </summary>
+        #endregion
+
+        // Variables con información de la gasolinera
+        #region Variables con información de la gasolinera
         public double limite
         {
             get
@@ -275,240 +130,174 @@ namespace Proyecto1_Mynor_Xico_1051916
                 _dineroConsumido = value;
             }
         }
+        #endregion
 
+        // Métodos para mostrar información
+        #region Métodos para mostrar información
         /// <summary>
-        /// Método que solicita al usuario si desea ingresar diesel a los depósitos
+        /// Método que muestra al usuario la cantidad de combustible en cada uno de los tres depósitos
         /// </summary>
-        public void solicitarCombustibleDiesel()
+        public void MostrarCombustible()
         {
-            double dblCosto = 0;
-            double dblCantidad = 0;
-            bool costoValido = false;
-            bool cantidadValida = false;
-            bool continuar = true;
+            
+            objFormato.pregunta("Cantidad de Gasolina en los Depósitos");
+            string strDiesel = "  La cantidad de gasolina en el depósito de Diesel es:  " + Math.Round(objDepositoDiesel.cantCombustible, 2);
+            string strRegular = "\n  La cantidad de gasolina en el depósito de Regular es: " + Math.Round(objDepositoRegular.cantCombustible, 2);
+            string strSuper = "\n  La cantidad de gasolina en el depósito de Super es:   " + Math.Round(objDepositoSuper.cantCombustible, 2);
 
-            do {
-                MostrarCombustible();
-                objFormato.pregunta("¿Desea Ingresar Diesel?");
-                objMenu1.EscribirMenuSecundario2ST();
-                Console.ResetColor();
-                string opcion = Console.ReadLine();
-                // Comprueba que la opción ingresada por el usuario sea válida, de lo contrario repite la acción
-                switch (opcion)
-                {
-                    // Si el usuario escribe 1, desea ingresar combustible a los depósitos
-                    case "1":
-                        do {
-                            Console.ResetColor();
-                            Console.Clear();
-                            Console.WriteLine("Ingrese la cantidad de " + objDepositoDiesel.label + " en galones que desea ingresar:");
-                            string strCantidad = Console.ReadLine();
-                            // Valida que la cantidad de galones ingresada sea un número real
-                            if (objValidador.esNumeroDouble(strCantidad))
-                            {
-                                dblCantidad = double.Parse(strCantidad);
-                                cantidadValida = true;
-                            }
-                        } while (!cantidadValida);
-                        do
-                        {
-                            Console.ResetColor();
-                            Console.Clear();
-                            Console.WriteLine("Ingrese el costo por galón del combustible");
-                            string strCosto = Console.ReadLine();
-                            // Valida que la cantidad ingresada de quetzales sea un número real
-                            if (objValidador.esNumeroDouble(strCosto))
-                            {
-                                dblCosto = double.Parse(strCosto);
-                                costoValido = true;
-                                if (objValidador.esPositivo(dblCosto) && objValidador.esPositivo(dblCantidad)) {
-                                    agregarDiesel(dblCantidad, dblCosto);
-                                }
-                                else
-                                {
-                                    objFormato.mensajeError("Ingresó valores inválidos");
-                                    objFormato.mensajeError("La operación finaliza");
-                                }
-                            }
-                            break;
-                        } while (!costoValido);
-                        continuar = false;
-                        break;
-                    case "2":
-                        // Si el usuario escribe 2, no desea agregar combustible a los galones y finaliza el método
-                        continuar = false;
-                        break;
-                    default:
-                        // Muestra mensaje de error en caso de haber ingresado una opción no válida
-                        objFormato.mensajeError("Opción inválida");
-                        Console.ResetColor();
-                        Console.Clear();
-                        break;
-                }
-            } while (continuar);
-            // Limpia consola al finalizar el método
-            Console.Clear();
+            string output = strDiesel + strRegular + strSuper;
+            objFormato.escribirContenido(output);
         }
-
         /// <summary>
-        /// Método que solicita al usuario si desea ingresar regular a los depósitos
+        /// Método que muestra al usuario la cantidad de combustible disponible para la venta
         /// </summary>
-        public void solicitarCombustibleRegular()
+        public void MostrarCombustibleVenta()
         {
-            double dblCosto = 0;
-            double dblCantidad = 0;
-            bool costoValido = false;
-            bool cantidadValida = false;
-            bool continuar = true;
-
-            do
+            string strDiesel = null;
+            string strRegular = null;
+            string strSuper = null;
+            // Muestra el depósito únicamente si hay combustible disponible para la venta
+            objFormato.pregunta("Cantidad de Gasolina en los Depósitos");
+            if (objDepositoDiesel.disponible())
             {
-                MostrarCombustible();
-                objFormato.pregunta("¿Desea Ingresar Regular?");
-                objMenu1.EscribirMenuSecundario2ST();
-                Console.ResetColor();
-                string opcion = Console.ReadLine();
-                switch (opcion)
-                {
-                    case "1":
-                        do
-                        {
-                            Console.ResetColor();
-                            Console.Clear();
-                            Console.WriteLine("Ingrese la cantidad de " + objDepositoRegular.label + " en galones que desea ingresar:");
-                            string strCantidad = Console.ReadLine();
-                            if (objValidador.esNumeroDouble(strCantidad))
-                            {
-                                dblCantidad = double.Parse(strCantidad);
-                                cantidadValida = true;
-                            }
-                            else
-                            {
-                                objFormato.mensajeError("Cantidad no válida");
-                            }
-                        } while (!cantidadValida);
-                        do
-                        {
-                            Console.ResetColor();
-                            Console.Clear();
-                            Console.WriteLine("Ingrese el costo por galón del combustible");
-                            string strCosto = Console.ReadLine();
-                            if (objValidador.esNumeroDouble(strCosto))
-                            {
-                                dblCosto = double.Parse(strCosto);
-                                costoValido = true; if (objValidador.esPositivo(dblCosto) && objValidador.esPositivo(dblCantidad))
-                                {
-                                    agregarRegular(dblCantidad, dblCosto);
-                                }
-                                else
-                                {
-                                    objFormato.mensajeError("Ingresó valores inválidos");
-                                    objFormato.mensajeError("La operación finaliza");
-                                }
-                            }
-                            break;
-                        } while (!costoValido);
-                        continuar = false;
-                        break;
-                    case "2":
-                        continuar = false;
-                        break;
-                    default:
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Ingrese un número válido");
-                        System.Threading.Thread.Sleep(1200);
-                        Console.ResetColor();
-                        Console.Clear();
-                        break;
-                }
-            } while (continuar);
-            Console.Clear();
-        }
-
-        /// <summary>
-        /// Método que solicita al usuario si desea ingresar súper a los depósitos
-        /// </summary>
-        public void solicitarCombustibleSuper()
-        {
-            double dblCosto = 0;
-            double dblCantidad = 0;
-            bool costoValido = false;
-            bool cantidadValida = false;
-            bool continuar = true;
-
-            do
+                strDiesel = "  La cantidad de gasolina en el depósito de Diesel es:  " + Math.Round(objDepositoDiesel.cantCombustible, 2);
+            }
+            if (objDepositoRegular.disponible())
             {
-                MostrarCombustible();
-                objFormato.pregunta("¿Desea Ingresar Super?");
-                objMenu1.EscribirMenuSecundario2ST();
-                Console.ResetColor();
-                string opcion = Console.ReadLine();
-                switch (opcion)
-                {
-                    case "1":
-                        do
-                        {
-                            Console.ResetColor();
-                            Console.Clear();
-                            Console.WriteLine("Ingrese la cantidad de " + objDepositoSuper.label + " en galones que desea ingresar:");
-                            string strCantidad = Console.ReadLine();
-                            if (objValidador.esNumeroDouble(strCantidad))
-                            {
-                                dblCantidad = double.Parse(strCantidad);
-                                cantidadValida = true;
-                            }
-                        } while (!cantidadValida);
-                        do
-                        {
-                            Console.ResetColor();
-                            Console.Clear();
-                            Console.WriteLine("Ingrese el costo por galón del combustible");
-                            string strCosto = Console.ReadLine();
-                            if (objValidador.esNumeroDouble(strCosto))
-                            {
-                                dblCosto = double.Parse(strCosto);
-                                costoValido = true;
-                                if (objValidador.esPositivo(dblCosto) && objValidador.esPositivo(dblCantidad))
-                                {
-                                    agregarSuper(dblCantidad, dblCosto);
-                                }
-                                else
-                                {
-                                    objFormato.mensajeError("Ingresó valores inválidos");
-                                    objFormato.mensajeError("La operación finaliza");
-                                }
-                            }
-                            break;
-                        } while (!costoValido);
-                        continuar = false;
-                        break;
-                    case "2":
-                        continuar = false;
-                        break;
-                    default:
-                        objFormato.mensajeError("Ingrese un número válido");
-                        Console.Clear();
-                        break;
-                }
-            } while (continuar);
-            Console.Clear();
+                strRegular = "\n  La cantidad de gasolina en el depósito de Regular es: " + Math.Round(objDepositoRegular.cantCombustible, 2);
+            }
+            if (objDepositoSuper.disponible())
+                strSuper = "\n  La cantidad de gasolina en el depósito de Super es:   " + Math.Round(objDepositoSuper.cantCombustible, 2);
+            string output = strDiesel + strRegular + strSuper;
+            objFormato.escribirContenido(output);
         }
-
         /// <summary>
-        ///  Método que permite al usuario decidir si deseea ingresar diesel, regular o super
+        /// Método que muestra al usuario los precios de cada tipo de combustible por Galón.
         /// </summary>
-        public void solicitarCombustible()
+        public void MostrarPrecios()
         {
-            solicitarCombustibleDiesel();
-            solicitarCombustibleRegular();
-            solicitarCombustibleSuper();
-        }
+            objFormato.pregunta("Precios por Galón de Combustible");
+            string strDiesel = "  El precio por galón del Diesel es:    Q." + Math.Round(objDepositoDiesel.precioPorGalon, 2);
+            string strRegular = "\n  El precio por galón de Regular es:    Q." + Math.Round(objDepositoRegular.precioPorGalon, 2);
+            string strSuper = "\n  El precio por galón de Súper es:      Q." + Math.Round(objDepositoSuper.precioPorGalon, 2);
 
+            string output = strDiesel + strRegular + strSuper;
+            objFormato.escribirContenido(output);
+        }
+        /// <summary>
+        /// Método que muestra ventas
+        /// </summary>
+        public void mostrarVentas()
+        {
+            calcularVentas(ref _combustibleConsumido, ref _dineroConsumido);
+            objFormato.pregunta("Ventas de la Gasolinera");
+            Console.WriteLine("Cantidad vendida en Galones:   " + Math.Round(_combustibleConsumido, 2));
+            Console.WriteLine("Cantidad vendida en Quetzales: " + Math.Round(_dineroConsumido, 2));
+            Console.WriteLine("********************************************");
+            Console.ReadLine();
+        }
+        /// <summary>
+        /// Método que muestra la información de las ventas realizadas en la gasolinera
+        /// </summary>
+        public void mostrarInformacionVentas()
+        {
+            // Muestra las ventas por Bomba
+            Console.Clear();
+            objFormato.pregunta("Información de las Ventas Realizadas por Bomba");
+            objBomba1.mostrarVentas();
+            objBomba2.mostrarVentas();
+            objBomba3.mostrarVentas();
+            objBomba4.mostrarVentas();
+            objBomba5.mostrarVentas();
+            objBomba6.mostrarVentas();
+            objBomba7.mostrarVentas();
+            // Muestra las ventas por Depósito
+            Console.Clear();
+            objFormato.pregunta("Información de las ventas Realizadas por Depósito");
+            objDepositoDiesel.mostrarVentas();
+            objDepositoRegular.mostrarVentas();
+            objDepositoSuper.mostrarVentas();
+            // Muestra las ventas de la gasolinera
+            Console.Clear();
+            mostrarVentas();
+            mostarComprasQ();
+            mostrarGanancia();
+        }
+        /// <summary>
+        /// Método que muestra la ganancia en la gasolinera
+        /// </summary>
+        public void mostrarGanancia()
+        {
+            calcularGanancias(ref _ganancia);
+            objFormato.pregunta("Ganancias en la Gasolinera");
+            if (_ganancia >= 0)
+            {
+                Console.WriteLine("La ganancia ha sido de:  Q " + _ganancia);
+            }
+            else
+            {
+                objFormato.mensajeError("No han habido ganancias, la pérdida ha sido de " + -_ganancia);
+            }
+        }
+        /// <summary>
+        /// Método que muestra las compras de la gasolinera
+        /// </summary>
+        public void mostarComprasQ()
+        {
+            calcularComprasQ(ref _comprasQuetzales);
+            objFormato.pregunta("Compras de la Gasolinera");
+            Console.WriteLine("Cantidad comprada en Quetzales: " + Math.Round(_comprasQuetzales, 2));
+            Console.WriteLine("********************************************");
+            Console.ReadLine();
+        }
+        #endregion
+        
+        // Métodos para cambiar información de los depósitos de combustible
+        #region Métodos para cambiar información de los depósitos de combustible
+        /// <summary>
+        /// Método para agregar combustible
+        /// </summary>
+        /// <param name="deposito">Depósito al que se agregará combustible</param>
+        /// <param name="cantidad"></param>
+        /// <param name="costo"></param>
+        internal void agregarCombustible(Deposito deposito, double cantidad, double costo)
+        {
+            if ((deposito.cantCombustible + cantidad) <= deposito.limit)
+            {
+                deposito.ingresarCombustible(cantidad, costo);
+                objFormato.mensajeExito("El " + deposito.label + " se agregó correctamente");
+                System.Threading.Thread.Sleep(1200);
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Operación inválida. La cantidad ingresada supera la capacidad del depósito");
+                System.Threading.Thread.Sleep(1200);
+            }
+        }        
+        /// <summary>
+        /// Método para fijar el precio de un depósito de combustible
+        /// </summary>
+        /// <param name="deposito">Depósito al que se fijará combustible</param>
+        /// <param name="precio">Precio nuevo del combustible</param>
+        internal void fijarPrecioCombustible(Deposito deposito, double precio)
+        {
+            if (precio > deposito.costoPorGalon)
+            {
+                deposito.precioPorGalon = precio;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                objFormato.mensajeError("El precio por galón indicado generará pérdidas a la gasolinera");
+                Console.ReadLine();
+            }
+        }
         /// <summary>
         /// Método que permite al usuario definir el precio de cualquier tipo de Combustible
         /// </summary>
         /// <param name="unDeposito">TIpo de combustible cuyo precio se desea cambiar</param>
-        private void definirPrecio(Deposito unDeposito)
+        internal void definirPrecio(Deposito unDeposito)
         {
             bool opcionValida = true;
             do
@@ -576,48 +365,86 @@ namespace Proyecto1_Mynor_Xico_1051916
             Console.ResetColor();
             Console.Clear();
         }
-
         /// <summary>
-        ///  Método que precmite definir el precio de los tres depósitos de combustible
+        /// Solicita combustible diesel
         /// </summary>
-        public void definirPrecios()
+        internal void solicitarCombustibleDeposito(Deposito unDeposito)
         {
-            bool opcionValida = false;
-            do {
-                // Preunta al usuario si desea cambiar el precio de algun depósito
-                objFormato.escribirTitulo("Precios de gasolina por depósitos");
-                MostrarPrecios();
-                objFormato.pregunta("¿Desea cambiar el precio por depósitos?");
+            double dblCosto = 0;
+            double dblCantidad = 0;
+            bool costoValido = false;
+            bool cantidadValida = false;
+            bool continuar = true;
+
+            do
+            {
+                MostrarCombustible();
+                objFormato.pregunta("¿Desea Ingresar " + unDeposito.label + "?");
                 objMenu1.EscribirMenuSecundario2ST();
-                string strOpcion = Console.ReadLine();
-                switch (strOpcion) {
-                    // En caso seleccione 1, se solicitará el nuevo precio para cada uno de los tres depósitos de combustible
+                Console.ResetColor();
+                string opcion = Console.ReadLine();
+                // Comprueba que la opción ingresada por el usuario sea válida, de lo contrario repite la acción
+                switch (opcion)
+                {
+                    // Si el usuario escribe 1, desea ingresar combustible a los depósitos
                     case "1":
-                        opcionValida = true;
-                        Console.ResetColor();
-                        Console.Clear();
-                        definirPrecio(objDepositoDiesel);
-                        definirPrecio(objDepositoRegular);
-                        definirPrecio(objDepositoSuper);
-                        MostrarPrecios();
-                        Console.ReadLine();
+                        do
+                        {
+                            Console.ResetColor();
+                            Console.Clear();
+                            Console.WriteLine("Ingrese la cantidad de " + unDeposito.label + " en galones que desea ingresar:");
+                            string strCantidad = Console.ReadLine();
+                            // Valida que la cantidad de galones ingresada sea un número real
+                            if (objValidador.esNumeroDouble(strCantidad))
+                            {
+                                dblCantidad = double.Parse(strCantidad);
+                                cantidadValida = true;
+                            }
+                        } while (!cantidadValida);
+                        do
+                        {
+                            Console.ResetColor();
+                            Console.Clear();
+                            Console.WriteLine("Ingrese el costo por galón del combustible");
+                            string strCosto = Console.ReadLine();
+                            // Valida que la cantidad ingresada de quetzales sea un número real
+                            if (objValidador.esNumeroDouble(strCosto))
+                            {
+                                dblCosto = double.Parse(strCosto);
+                                costoValido = true;
+                                if (objValidador.esPositivo(dblCosto) && objValidador.esPositivo(dblCantidad))
+                                {
+                                    agregarCombustible(unDeposito, dblCantidad, dblCosto);
+                                }
+                                else
+                                {
+                                    objFormato.mensajeError("Ingresó valores inválidos");
+                                    objFormato.mensajeError("La operación finaliza");
+                                }
+                            }
+                            break;
+                        } while (!costoValido);
+                        continuar = false;
                         break;
-                    // En caso seleccione 2, finaliza el programa
                     case "2":
-                        opcionValida = true;
-                        Console.ResetColor();
-                        Console.Clear();
+                        // Si el usuario escribe 2, no desea agregar combustible a los galones y finaliza el método
+                        continuar = false;
                         break;
                     default:
-                        // Si no selecciona 1 o 2, se solicita de nuevo una opción
+                        // Muestra mensaje de error en caso de haber ingresado una opción no válida
+                        objFormato.mensajeError("Opción inválida");
                         Console.ResetColor();
-                        objFormato.mensajeError("Ingrese una opción válida");
                         Console.Clear();
                         break;
                 }
-            } while (!opcionValida);
+            } while (continuar);
+            // Limpia consola al finalizar el método
+            Console.Clear();
         }
+        #endregion
 
+        // Métodos utilizados para la venta
+        #region Métodos utilizados para la venta
         /// <summary>
         /// Método que solicita al usuario el tipo de venta que se realizará
         /// </summary>
@@ -693,7 +520,6 @@ namespace Proyecto1_Mynor_Xico_1051916
                 }
             } while (!opcionValida);
         }
-
         /// <summary>
         /// Método que permite realizar la venta de Gasolina
         /// </summary>
@@ -706,7 +532,8 @@ namespace Proyecto1_Mynor_Xico_1051916
                 objFormato.pregunta("¿Desea entrar al proceso de ventas?");
                 objMenu1.EscribirMenuSecundario2ST();
                 string opcion = Console.ReadLine();
-                switch (opcion) {
+                switch (opcion)
+                {
                     case "1":
                         // Si selecciona 1, se define el tipo de venta que se realizará
                         opcionValida = true;
@@ -731,9 +558,6 @@ namespace Proyecto1_Mynor_Xico_1051916
                 Console.Clear();
             } while (!opcionValida);
         }
-
-
-
         /// <summary>
         /// Método que permite seleccionar la bomba que se utilizará para la venta
         /// </summary>
@@ -848,7 +672,6 @@ namespace Proyecto1_Mynor_Xico_1051916
             } while (!opcionValida);
             return depositoSeleccionado;
         }
-
         /// <summary>
         /// Función que devuelve un entero que simboliza el tipo de venta que seleccionará el usuario
         /// </summary>
@@ -884,7 +707,6 @@ namespace Proyecto1_Mynor_Xico_1051916
             } while (!opcionValida);
             return tipoVenta;
         }
-
         /// <summary>
         /// Método que se utiliza para la venta Automática
         /// </summary>
@@ -894,7 +716,6 @@ namespace Proyecto1_Mynor_Xico_1051916
 
             gasolineraVentas.EjecutarAccion(4, 5, 6, 7);
         }
-
         /// <summary>
         /// Método utilizado para calcular las ventas de la gasolinera
         /// </summary>
@@ -905,20 +726,63 @@ namespace Proyecto1_Mynor_Xico_1051916
             combustible = objDepositoDiesel.combustibleConsumido + objDepositoRegular.combustibleConsumido + objDepositoSuper.combustibleConsumido;
             dinero = objDepositoDiesel.combustibleConsumido * objDepositoDiesel.precioPorGalon + objDepositoRegular.combustibleConsumido * objDepositoRegular.precioPorGalon + objDepositoSuper.combustibleConsumido * objDepositoSuper.precioPorGalon;
         }
+        #endregion
 
+        // Métodos para el ingreso de combustible
+        #region Métodos para el ingreso de combustible
         /// <summary>
-        /// Método que muestra ventas
+        ///  Método que permite al usuario decidir si deseea ingresar diesel, regular o super
         /// </summary>
-        public void mostrarVentas()
+        public void solicitarCombustible()
         {
-            calcularVentas(ref _combustibleConsumido, ref _dineroConsumido);
-            objFormato.pregunta("Ventas de la Gasolinera");
-            Console.WriteLine("Cantidad vendida en Galones:   " + Math.Round(_combustibleConsumido, 2));
-            Console.WriteLine("Cantidad vendida en Quetzales: " + Math.Round(_dineroConsumido, 2));
-            Console.WriteLine("********************************************");
-            Console.ReadLine();
+            solicitarCombustibleDeposito(objDepositoDiesel);
+            solicitarCombustibleDeposito(objDepositoRegular);
+            solicitarCombustibleDeposito(objDepositoSuper);
+        }  
+        /// <summary>
+        ///  Método que precmite definir el precio de los tres depósitos de combustible
+        /// </summary>
+        public void definirPrecios()
+        {
+            bool opcionValida = false;
+            do {
+                // Preunta al usuario si desea cambiar el precio de algun depósito
+                objFormato.escribirTitulo("Precios de gasolina por depósitos");
+                MostrarPrecios();
+                objFormato.pregunta("¿Desea cambiar el precio por depósitos?");
+                objMenu1.EscribirMenuSecundario2ST();
+                string strOpcion = Console.ReadLine();
+                switch (strOpcion) {
+                    // En caso seleccione 1, se solicitará el nuevo precio para cada uno de los tres depósitos de combustible
+                    case "1":
+                        opcionValida = true;
+                        Console.ResetColor();
+                        Console.Clear();
+                        definirPrecio(objDepositoDiesel);
+                        definirPrecio(objDepositoRegular);
+                        definirPrecio(objDepositoSuper);
+                        MostrarPrecios();
+                        Console.ReadLine();
+                        break;
+                    // En caso seleccione 2, finaliza el programa
+                    case "2":
+                        opcionValida = true;
+                        Console.ResetColor();
+                        Console.Clear();
+                        break;
+                    default:
+                        // Si no selecciona 1 o 2, se solicita de nuevo una opción
+                        Console.ResetColor();
+                        objFormato.mensajeError("Ingrese una opción válida");
+                        Console.Clear();
+                        break;
+                }
+            } while (!opcionValida);
         }
+        #endregion
 
+        // Métodos para el análsis financiero de la gasolinera
+        #region Métodos para el análisis financiero de la gasolinera
         /// <summary>
         /// Calcula las Compras en Quetzales de la Gasolinera
         /// </summary>
@@ -926,20 +790,7 @@ namespace Proyecto1_Mynor_Xico_1051916
         public void calcularComprasQ(ref double comprasQuetzales)
         {
             comprasQuetzales = objDepositoDiesel.comprasQuetzales + objDepositoRegular.comprasQuetzales + objDepositoSuper.comprasQuetzales;
-        }
-
-        /// <summary>
-        /// Método que muestra las compras de la gasolinera
-        /// </summary>
-        public void mostarComprasQ()
-        {
-            calcularComprasQ(ref _comprasQuetzales);
-            objFormato.pregunta("Compras de la Gasolinera");
-            Console.WriteLine("Cantidad comprada en Quetzales: " + Math.Round(_comprasQuetzales, 2));
-            Console.WriteLine("********************************************");
-            Console.ReadLine();
-        }
-
+        }        
         /// <summary>
         /// Método que calcula la ganancia en la gasolinera
         /// </summary>
@@ -948,64 +799,6 @@ namespace Proyecto1_Mynor_Xico_1051916
         {
             ganancia = dineroConsumido - _comprasQuetzales;
         }
-
-        /// <summary>
-        /// Método que muestra la ganancia en la gasolinera
-        /// </summary>
-        public void mostrarGanancia()
-        {
-            calcularGanancias(ref _ganancia);
-            objFormato.pregunta("Ganancias en la Gasolinera");
-            if (_ganancia >= 0)
-            {
-                Console.WriteLine("La ganancia ha sido de:  Q " + _ganancia);
-            }
-            else
-            {
-                objFormato.mensajeError("No han habido ganancias, la pérdida ha sido de " + -_ganancia);
-            }
-        }
-
-        /// <summary>
-        /// Método que muestra la información de las ventas realizadas en la gasolinera
-        /// </summary>
-        public void mostrarInformacionVentas()
-        {
-            // Muestra las ventas por Bomba
-            Console.Clear();
-            objFormato.pregunta("Información de las Ventas Realizadas por Bomba");
-            objBomba1.mostrarVentas();
-            objBomba2.mostrarVentas();
-            objBomba3.mostrarVentas();
-            objBomba4.mostrarVentas();
-            objBomba5.mostrarVentas();
-            objBomba6.mostrarVentas();
-            objBomba7.mostrarVentas();
-            // Muestra las ventas por Depósito
-            Console.Clear();
-            objFormato.pregunta("Información de las ventas Realizadas por Depósito");
-            objDepositoDiesel.mostrarVentas();
-            objDepositoRegular.mostrarVentas();
-            objDepositoSuper.mostrarVentas();
-            // Muestra las ventas de la gasolinera
-            Console.Clear();
-            mostrarVentas();
-            mostarComprasQ();
-            mostrarGanancia();
-        }
-
-
-        /*
-            Comienza preuba de ventas automáticas
-        */
-        Gasolinera a = new Gasolinera();
-        public void vender()
-        {
-            ManejoDatos operador = new ManejoDatos();
-            VentasAutomáticas ventas = new VentasAutomáticas();
-
-            // operador.CargaryEjecutarDatosArchivo("C://Ejemplo.txt", a, );
-            Console.ReadLine();
-        }
+        #endregion
     }
 }

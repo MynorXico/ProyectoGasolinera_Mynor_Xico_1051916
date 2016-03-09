@@ -22,3 +22,63 @@
 3/6/2016 12:31:10 PM No se ejecutó correctamente la acción en gasolinera (línea: 6)
 3/6/2016 12:31:10 PM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
 
+3/8/2016 7:22:30 AM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+3/8/2016 7:22:31 AM Acción ejecutada correctamente. Línea: 2
+3/8/2016 7:22:31 AM No se ejecutó correctamente la acción en gasolinera (línea: 2)
+3/8/2016 7:22:33 AM Acción ejecutada correctamente. Línea: 3
+3/8/2016 7:22:33 AM No se ejecutó correctamente la acción en gasolinera (línea: 3)
+3/8/2016 7:22:33 AM El tipo de combustible indicado no es válido (línea: 4)
+3/8/2016 7:22:38 AM Acción ejecutada correctamente. Línea: 5
+3/8/2016 7:22:38 AM No se ejecutó correctamente la acción en gasolinera (línea: 5)
+3/8/2016 7:22:39 AM Acción ejecutada correctamente. Línea: 6
+3/8/2016 7:22:39 AM No se ejecutó correctamente la acción en gasolinera (línea: 6)
+3/8/2016 7:22:39 AM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+3/8/2016 7:24:17 AM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+3/8/2016 7:24:18 AM Acción ejecutada correctamente. Línea: 2
+3/8/2016 7:24:18 AM No se ejecutó correctamente la acción en gasolinera (línea: 2)
+3/8/2016 7:24:19 AM Acción ejecutada correctamente. Línea: 3
+3/8/2016 7:24:19 AM No se ejecutó correctamente la acción en gasolinera (línea: 3)
+3/8/2016 7:24:19 AM El tipo de combustible indicado no es válido (línea: 4)
+3/8/2016 7:24:21 AM Acción ejecutada correctamente. Línea: 5
+3/8/2016 7:24:21 AM No se ejecutó correctamente la acción en gasolinera (línea: 5)
+3/8/2016 7:24:22 AM Acción ejecutada correctamente. Línea: 6
+3/8/2016 7:24:22 AM No se ejecutó correctamente la acción en gasolinera (línea: 6)
+3/8/2016 7:24:22 AM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+3/8/2016 9:56:24 AM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+3/8/2016 9:56:26 AM Acción ejecutada correctamente. Línea: 2
+3/8/2016 9:56:26 AM No se ejecutó correctamente la acción en gasolinera (línea: 2)
+3/8/2016 9:56:27 AM Acción ejecutada correctamente. Línea: 3
+3/8/2016 9:56:27 AM No se ejecutó correctamente la acción en gasolinera (línea: 3)
+3/8/2016 9:56:27 AM El tipo de combustible indicado no es válido (línea: 4)
+3/8/2016 9:56:29 AM Acción ejecutada correctamente. Línea: 5
+3/8/2016 9:56:29 AM No se ejecutó correctamente la acción en gasolinera (línea: 5)
+3/8/2016 9:56:30 AM Acción ejecutada correctamente. Línea: 6
+3/8/2016 9:56:30 AM No se ejecutó correctamente la acción en gasolinera (línea: 6)
+3/8/2016 9:56:30 AM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+3/8/2016 9:57:04 AM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+3/8/2016 9:57:06 AM Acción ejecutada correctamente. Línea: 2
+3/8/2016 9:57:06 AM No se ejecutó correctamente la acción en gasolinera (línea: 2)
+3/8/2016 9:57:07 AM Acción ejecutada correctamente. Línea: 3
+3/8/2016 9:57:07 AM No se ejecutó correctamente la acción en gasolinera (línea: 3)
+3/8/2016 9:57:07 AM El tipo de combustible indicado no es válido (línea: 4)
+3/8/2016 9:57:08 AM Acción ejecutada correctamente. Línea: 5
+3/8/2016 9:57:08 AM No se ejecutó correctamente la acción en gasolinera (línea: 5)
+3/8/2016 9:57:10 AM Acción ejecutada correctamente. Línea: 6
+3/8/2016 9:57:10 AM No se ejecutó correctamente la acción en gasolinera (línea: 6)
+3/8/2016 9:57:10 AM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+3/8/2016 6:42:19 PM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+3/8/2016 6:42:20 PM Acción ejecutada correctamente. Línea: 2
+3/8/2016 6:42:20 PM No se ejecutó correctamente la acción en gasolinera (línea: 2)
+3/8/2016 6:42:22 PM Acción ejecutada correctamente. Línea: 3
+3/8/2016 6:42:22 PM No se ejecutó correctamente la acción en gasolinera (línea: 3)
+3/8/2016 6:42:22 PM El tipo de combustible indicado no es válido (línea: 4)
+3/8/2016 6:42:23 PM Acción ejecutada correctamente. Línea: 5
+3/8/2016 6:42:23 PM No se ejecutó correctamente la acción en gasolinera (línea: 5)
+3/8/2016 6:42:24 PM Acción ejecutada correctamente. Línea: 6
+3/8/2016 6:42:24 PM No se ejecutó correctamente la acción en gasolinera (línea: 6)
+3/8/2016 6:42:24 PM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
