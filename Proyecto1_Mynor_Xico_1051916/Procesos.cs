@@ -19,20 +19,20 @@ namespace Proyecto1_Mynor_Xico_1051916
 
         // Instanciación de los 7 objetos Bomba que operarán en la gasolinera
         #region Instanciación de Bombas
-        Bomba objBomba1 = new Bomba("Bomba 1");
-        Bomba objBomba2 = new Bomba("Bomba 2");
-        Bomba objBomba3 = new Bomba("Bomba 3");
-        Bomba objBomba4 = new Bomba("Bomba 4");
-        Bomba objBomba5 = new Bomba("Bomba 5");
-        Bomba objBomba6 = new Bomba("Bomba 6");
-        Bomba objBomba7 = new Bomba("Bomba 7");
+        static Bomba objBomba1 = new Bomba("Bomba 1");
+        static Bomba objBomba2 = new Bomba("Bomba 2");
+        static Bomba objBomba3 = new Bomba("Bomba 3");
+        static Bomba objBomba4 = new Bomba("Bomba 4");
+        static Bomba objBomba5 = new Bomba("Bomba 5");
+        static Bomba objBomba6 = new Bomba("Bomba 6");
+        static Bomba objBomba7 = new Bomba("Bomba 7");
         #endregion
 
         // Instanciación de los 3 objetos Depósito que operarán en la gasolinera
         #region Instanciación de Depósitos
-        Deposito objDepositoDiesel = new Deposito(50, 11, 13.5, "Diesel");
-        Deposito objDepositoRegular = new Deposito(30, 12.5, 17, "Regular");
-        Deposito objDepositoSuper = new Deposito(30, 14.5, 19, "Super");
+        static Deposito objDepositoDiesel = new Deposito(50, 11, 13.5, "Diesel");
+        static Deposito objDepositoRegular = new Deposito(30, 12.5, 17, "Regular");
+        static Deposito objDepositoSuper = new Deposito(30, 14.5, 19, "Super");
         #endregion
 
         // Instanciación de objetos auxiliares
@@ -43,7 +43,7 @@ namespace Proyecto1_Mynor_Xico_1051916
 
         // Instaciación de Objetos para Ventas Automáticas
         #region Instanciación de Objetos para Ventas Automáticas
-        Gasolinera gasolineraVentas = new Gasolinera();
+        Gasolinera gasolineraVentas = new Gasolinera(objDepositoDiesel, objDepositoRegular, objDepositoSuper, objBomba1, objBomba2, objBomba3, objBomba4, objBomba5, objBomba6, objBomba7);
         ManejoDatos objManejoDatos = new ManejoDatos();
         #endregion
 
@@ -545,7 +545,6 @@ namespace Proyecto1_Mynor_Xico_1051916
                         // Si selecciona 2, se procederá a realizar la venta automática
                         opcionValida = true;
                         Console.ResetColor();
-                        ventaAutomatica();
                         Console.Clear();
                         break;
                     default:
@@ -712,9 +711,7 @@ namespace Proyecto1_Mynor_Xico_1051916
         /// </summary>
         private void ventaAutomatica()
         {
-            objManejoDatos.CargaryEjecutarDatosArchivo(@"C:\Ejemplo.txt", gasolineraVentas, objDepositoDiesel, objDepositoRegular, objDepositoSuper, objBomba1, objBomba2, objBomba3, objBomba4, objBomba5, objBomba6, objBomba7);
-
-            gasolineraVentas.EjecutarAccion(4, 5, 6, 7);
+            objManejoDatos.CargaryEjecutarDatosArchivo(@"C:\Ejemplo.txt", gasolineraVentas);
         }
         /// <summary>
         /// Método utilizado para calcular las ventas de la gasolinera
@@ -828,5 +825,7 @@ namespace Proyecto1_Mynor_Xico_1051916
             ganancia = dineroConsumido - _comprasQuetzales;
         }
         #endregion
+
+
     }
 }

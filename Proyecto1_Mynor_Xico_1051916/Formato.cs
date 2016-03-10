@@ -38,6 +38,24 @@ namespace Proyecto1_Mynor_Xico_1051916
             Console.BackgroundColor = ConsoleColor.Red;
         }
 
+        public void menuFormato(string opcion1, string opcion2, string opcion3, string opcion4, string opcion5)
+        {
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("*******************************************************************");
+            Console.ResetColor();
+            Console.WriteLine("Seleccione la opción que desea: ");
+            Console.WriteLine("     1. " + opcion1);
+            Console.WriteLine("     2. " + opcion2);
+            Console.WriteLine("     3. " + opcion3);
+            Console.WriteLine("     4. " + opcion4);
+            Console.WriteLine("     5. " + opcion5);
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("*******************************************************************");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Red;
+        }
+
         /// <summary>
         /// Formato para menú con seis opciones
         /// </summary>
