@@ -9,6 +9,7 @@ namespace Proyecto1_Mynor_Xico_1051916
     public class MenuSecundario
     {
         // Diferente opciones que pueda tener un menú
+        #region Opciones de menú
         string _titulo;
         string _opcion1;
         string _opcion2;
@@ -17,12 +18,12 @@ namespace Proyecto1_Mynor_Xico_1051916
         string _opcion5;
         string _opcion6;
         string _opcion7;
+        #endregion
 
         /// <summary>
         ///  instnaciación de objeto Fomrato
         /// </summary>
         Formato objFormato = new Formato();
-        private string v;
 
 
         /// <summary>

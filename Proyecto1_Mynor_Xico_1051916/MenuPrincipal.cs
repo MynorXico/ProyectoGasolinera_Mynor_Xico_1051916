@@ -28,7 +28,6 @@ namespace Proyecto1_Mynor_Xico_1051916
         // Instanciación de clase Validador
         Validador objValidador = new Validador();
 
-        VentasAutomáticas ventas = new VentasAutomáticas();
 
         /// <summary>
         /// Constructor de la clase MenuPrincipal sin atributos
@@ -36,7 +35,7 @@ namespace Proyecto1_Mynor_Xico_1051916
         public MenuPrincipal()
         {
         }
-        
+
         /// <summary>
         /// Método que escribe el menu Pantalla Principal
         /// </summary>
@@ -50,7 +49,7 @@ namespace Proyecto1_Mynor_Xico_1051916
         /// </summary>
         public void pantallaPrincipal()
         {
-            EscribirBienvenida();
+            AnimaciónBienvenida();
             Console.WriteLine("Presione una tecla para continuar...");
             Console.ResetColor();
             Console.ReadKey(false);
@@ -95,37 +94,81 @@ namespace Proyecto1_Mynor_Xico_1051916
                 }
                 Console.Clear();
             } while (!bolSalir);
-
-            /*
-            // Abre menú para agregar combustible
-            objProcesos.solicitarCombustible();
-            Console.Clear();
-            // Abre menú para la definición de nuevos precios
-            objProcesos.definirPrecios();
-            Console.Clear();
-            // Abre menú para la venta de Gasolina
-            objProcesos.venderGasolina();
-            Console.Clear();
-            // Muestra la información de ventas
-            objProcesos.mostrarInformacionVentas();
-            Console.ReadLine();
-
-
-            // Mensaje de Despedida
-            objFormato.escribirContenido("Gracias por utilizar nuestros servicios");
-            System.Threading.Thread.Sleep(900);
-            objFormato.mensajeExito("Finaliza Programa");
-            */
-
         }
+
+        /// <summary>
+        /// Método que muestra una animación de bienvenida
+        /// </summary>
+        static void AnimaciónBienvenida()
+        {
+            for (int i = 4; i >= 0; i--)
+            {
+                int frecuence = 5*(5 - i);
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine();
+                Console.WriteLine("          █▀▄ ▀ █▀▀ █▄░█ ▐▌░▐▌ █▀▀ █▄░█ ▀ █▀▄ ▄▀▄     ▄▀▄     ▄▀▀░ ▄▀▄ ▄▀▀ ▀█▀ █▀▀▄ ▄▀▄ █░░");
+                Console.WriteLine("          █▀█ █ █▀▀ █░▀█ ░▀▄▀░ █▀▀ █░▀█ █ █░█ █░█     █▀█     █░▀▌ █▀█ ░▀▄ ░█░ █▐█▀ █░█ █░▄");
+                Console.WriteLine("          ▀▀░ ▀ ▀▀▀ ▀░░▀ ░░▀░░ ▀▀▀ ▀░░▀ ▀ ▀▀░ ░▀░     ▀░▀     ▀▀▀░ ▀░▀ ▀▀░ ░▀░ ▀░▀▀ ░▀░ ▀▀▀");
+                Console.ResetColor();
+                Console.Beep((frecuence * 10), 10);
+                System.Threading.Thread.Sleep(300);
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine("     █▀▄ ▀ █▀▀ █▄░█ ▐▌░▐▌ █▀▀ █▄░█ ▀ █▀▄ ▄▀▄     ▄▀▄     ▄▀▀░ ▄▀▄ ▄▀▀ ▀█▀ █▀▀▄ ▄▀▄ █░░");
+                Console.WriteLine("     █▀█ █ █▀▀ █░▀█ ░▀▄▀░ █▀▀ █░▀█ █ █░█ █░█     █▀█     █░▀▌ █▀█ ░▀▄ ░█░ █▐█▀ █░█ █░▄");
+                Console.WriteLine("     ▀▀░ ▀ ▀▀▀ ▀░░▀ ░░▀░░ ▀▀▀ ▀░░▀ ▀ ▀▀░ ░▀░     ▀░▀     ▀▀▀░ ▀░▀ ▀▀░ ░▀░ ▀░▀▀ ░▀░ ▀▀▀");
+                Console.ResetColor();
+                Console.Beep((frecuence*100), 10);
+                System.Threading.Thread.Sleep(300);
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine();
+                Console.WriteLine("  █▀▄ ▀ █▀▀ █▄░█ ▐▌░▐▌ █▀▀ █▄░█ ▀ █▀▄ ▄▀▄     ▄▀▄     ▄▀▀░ ▄▀▄ ▄▀▀ ▀█▀ █▀▀▄ ▄▀▄ █░░");
+                Console.WriteLine("  █▀█ █ █▀▀ █░▀█ ░▀▄▀░ █▀▀ █░▀█ █ █░█ █░█     █▀█     █░▀▌ █▀█ ░▀▄ ░█░ █▐█▀ █░█ █░▄");
+                Console.WriteLine("  ▀▀░ ▀ ▀▀▀ ▀░░▀ ░░▀░░ ▀▀▀ ▀░░▀ ▀ ▀▀░ ░▀░     ▀░▀     ▀▀▀░ ▀░▀ ▀▀░ ░▀░ ▀░▀▀ ░▀░ ▀▀▀");
+                Console.ResetColor();
+                Console.Beep((frecuence * 75), 10);
+                System.Threading.Thread.Sleep(300);
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine("     █▀▄ ▀ █▀▀ █▄░█ ▐▌░▐▌ █▀▀ █▄░█ ▀ █▀▄ ▄▀▄     ▄▀▄     ▄▀▀░ ▄▀▄ ▄▀▀ ▀█▀ █▀▀▄ ▄▀▄ █░░");
+                Console.WriteLine("     █▀█ █ █▀▀ █░▀█ ░▀▄▀░ █▀▀ █░▀█ █ █░█ █░█     █▀█     █░▀▌ █▀█ ░▀▄ ░█░ █▐█▀ █░█ █░▄");
+                Console.WriteLine("     ▀▀░ ▀ ▀▀▀ ▀░░▀ ░░▀░░ ▀▀▀ ▀░░▀ ▀ ▀▀░ ░▀░     ▀░▀     ▀▀▀░ ▀░▀ ▀▀░ ░▀░ ▀░▀▀ ░▀░ ▀▀▀");
+                Console.ResetColor();
+                Console.Beep((frecuence * 50), 10);
+                switch (i)
+                {
+                    case 4:
+                        Console.WriteLine("********************");
+                        break;
+                    case 3:
+                        Console.WriteLine("*****************************************");
+                        break;
+                    case 2:
+                        Console.WriteLine("************************************************************"); ;
+                        break;
+                    case 1:
+                        Console.WriteLine("*******************************************************************************");
+                        break;
+                    case 0:
+                        Console.WriteLine("******************************************************************************************");
+                        break;
+                }
+                System.Threading.Thread.Sleep(300);
+            }
+        }
+        /// <summary>
+        /// Método que escribe "BIENVENIDO A GASTROL"
+        /// </summary>
         static void EscribirBienvenida()
         {
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("     █▀▄ ▀ █▀▀ █▄░█ ▐▌░▐▌ █▀▀ █▄░█ ▀ █▀▄ ▄▀▄     ▄▀▄     ▄▀▀░ ▄▀▄ ▄▀▀ ▀█▀ █▀▀▄ ▄▀▄ █░░");
             Console.WriteLine("     █▀█ █ █▀▀ █░▀█ ░▀▄▀░ █▀▀ █░▀█ █ █░█ █░█     █▀█     █░▀▌ █▀█ ░▀▄ ░█░ █▐█▀ █░█ █░▄");
             Console.WriteLine("     ▀▀░ ▀ ▀▀▀ ▀░░▀ ░░▀░░ ▀▀▀ ▀░░▀ ▀ ▀▀░ ░▀░     ▀░▀     ▀▀▀░ ▀░▀ ▀▀░ ░▀░ ▀░▀▀ ░▀░ ▀▀▀");
             Console.ResetColor();
-        }
-        
+        }   
     }
 }

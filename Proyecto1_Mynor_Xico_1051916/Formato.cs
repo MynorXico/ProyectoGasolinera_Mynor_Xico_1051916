@@ -11,6 +11,8 @@ namespace Proyecto1_Mynor_Xico_1051916
     */
     class Formato
     {
+        // Métodos para Menús
+        #region Métodos para Menús
         /// <summary>
         /// Formato para menú con seis opciones
         /// </summary>
@@ -38,6 +40,14 @@ namespace Proyecto1_Mynor_Xico_1051916
             Console.BackgroundColor = ConsoleColor.Red;
         }
 
+        /// <summary>
+        /// Formato para menú con cinco opciones
+        /// </summary>
+        /// <param name="opcion1">Opción #1</param>
+        /// <param name="opcion2">Opción #2</param>
+        /// <param name="opcion3">Opción #3</param>
+        /// <param name="opcion4">Opción #4</param>
+        /// <param name="opcion5">Opción #5</param>
         public void menuFormato(string opcion1, string opcion2, string opcion3, string opcion4, string opcion5)
         {
             Console.BackgroundColor = ConsoleColor.Black;
@@ -151,22 +161,24 @@ namespace Proyecto1_Mynor_Xico_1051916
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Red;
         }
+        #endregion
 
+        // Metodos para mostar mensajes al usuario
+        #region Métodos para mostrar mensajes al usuario
         /// <summary>
         /// Formato para escribir contenido
         /// </summary>
         /// <param name="contenido">Contenido a resaltar</param>
         public void escribirContenido(string contenido)
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("*******************************************************************");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("********************************************************************************");
             Console.ResetColor();
             Console.WriteLine(contenido);
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("*******************************************************************");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("********************************************************************************");
             Console.ResetColor();
         }
-
         /// <summary>
         ///  Formato para escribir títulos
         /// </summary>
@@ -178,7 +190,6 @@ namespace Proyecto1_Mynor_Xico_1051916
             Console.WriteLine("                    " + titulo + "                ");
             Console.ResetColor();
         }
-
         /// <summary>
         /// Formato para escribir Mensaje de Bienvenida
         /// </summary>
@@ -190,7 +201,6 @@ namespace Proyecto1_Mynor_Xico_1051916
             Console.WriteLine("                      "+mensaje+"                   ");
             Console.ResetColor();
         }
-
         /// <summary>
         /// Formato para escribir mensajes de éxito
         /// </summary>
@@ -203,7 +213,6 @@ namespace Proyecto1_Mynor_Xico_1051916
             Console.ResetColor();
             System.Threading.Thread.Sleep(1200);
         }
-
         /// <summary>
         /// Formtato para escribir preguntas
         /// </summary>
@@ -214,7 +223,6 @@ namespace Proyecto1_Mynor_Xico_1051916
             Console.WriteLine("       " + mensaje);
             Console.ResetColor();
         }
-
         /// <summary>
         /// Formato para escribir mensajes de error
         /// </summary>
@@ -223,10 +231,11 @@ namespace Proyecto1_Mynor_Xico_1051916
         {
             Console.Beep();
             Console.Beep();
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("      " + mensaje);
             System.Threading.Thread.Sleep(900);
             Console.ResetColor();
         }
+        #endregion
     }
 }

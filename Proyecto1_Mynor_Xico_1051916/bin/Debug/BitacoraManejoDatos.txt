@@ -6,3 +6,99 @@
 3/8/2016 8:39:59 PM Acción ejecutada correctamente. Línea: 6
 3/8/2016 8:39:59 PM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
 
+3/10/2016 12:47:38 AM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+3/10/2016 12:47:39 AM Acción ejecutada correctamente. Línea: 2
+3/10/2016 12:47:41 AM Acción ejecutada correctamente. Línea: 3
+3/10/2016 12:47:41 AM Acción ejecutada correctamente. Línea: 4
+3/10/2016 12:47:42 AM Acción ejecutada correctamente. Línea: 5
+3/10/2016 12:47:43 AM Acción ejecutada correctamente. Línea: 6
+3/10/2016 12:47:43 AM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+3/10/2016 12:47:58 AM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+3/10/2016 12:47:59 AM Acción ejecutada correctamente. Línea: 2
+3/10/2016 12:48:01 AM Acción ejecutada correctamente. Línea: 3
+3/10/2016 12:48:01 AM Acción ejecutada correctamente. Línea: 4
+3/10/2016 12:48:02 AM Acción ejecutada correctamente. Línea: 5
+3/10/2016 12:48:03 AM Acción ejecutada correctamente. Línea: 6
+3/10/2016 12:48:03 AM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+3/10/2016 6:51:30 AM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+3/10/2016 6:51:31 AM Acción ejecutada correctamente. Línea: 2
+3/10/2016 6:51:33 AM Acción ejecutada correctamente. Línea: 3
+3/10/2016 6:51:33 AM Acción ejecutada correctamente. Línea: 4
+3/10/2016 6:51:34 AM Acción ejecutada correctamente. Línea: 5
+3/10/2016 6:51:36 AM Acción ejecutada correctamente. Línea: 6
+3/10/2016 6:51:36 AM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+3/10/2016 6:53:42 AM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+3/10/2016 6:53:43 AM Acción ejecutada correctamente. Línea: 2
+3/10/2016 6:53:44 AM Acción ejecutada correctamente. Línea: 3
+3/10/2016 6:53:44 AM Acción ejecutada correctamente. Línea: 4
+3/10/2016 6:53:46 AM Acción ejecutada correctamente. Línea: 5
+3/10/2016 6:53:47 AM Acción ejecutada correctamente. Línea: 6
+3/10/2016 6:53:47 AM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+3/10/2016 7:05:01 AM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+3/10/2016 7:05:02 AM Acción ejecutada correctamente. Línea: 2
+3/10/2016 7:05:04 AM Acción ejecutada correctamente. Línea: 3
+3/10/2016 7:05:04 AM Acción ejecutada correctamente. Línea: 4
+3/10/2016 7:05:05 AM Acción ejecutada correctamente. Línea: 5
+3/10/2016 7:05:06 AM Acción ejecutada correctamente. Línea: 6
+3/10/2016 7:05:06 AM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+3/10/2016 7:42:11 AM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+3/10/2016 7:42:12 AM Acción ejecutada correctamente. Línea: 2
+3/10/2016 7:42:13 AM Acción ejecutada correctamente. Línea: 3
+3/10/2016 7:42:13 AM Acción ejecutada correctamente. Línea: 4
+3/10/2016 7:42:15 AM Acción ejecutada correctamente. Línea: 5
+3/10/2016 7:42:16 AM Acción ejecutada correctamente. Línea: 6
+3/10/2016 7:42:16 AM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+3/10/2016 3:42:25 PM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+3/10/2016 3:42:26 PM Acción ejecutada correctamente. Línea: 2
+3/10/2016 3:42:28 PM Acción ejecutada correctamente. Línea: 3
+3/10/2016 3:42:28 PM Acción ejecutada correctamente. Línea: 4
+3/10/2016 3:42:29 PM Acción ejecutada correctamente. Línea: 5
+3/10/2016 3:42:30 PM Acción ejecutada correctamente. Línea: 6
+3/10/2016 3:42:30 PM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+3/10/2016 3:54:57 PM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+3/10/2016 3:54:58 PM Acción ejecutada correctamente. Línea: 2
+3/10/2016 3:55:00 PM Acción ejecutada correctamente. Línea: 3
+3/10/2016 3:55:00 PM Acción ejecutada correctamente. Línea: 4
+3/10/2016 3:55:01 PM Acción ejecutada correctamente. Línea: 5
+3/10/2016 3:55:02 PM Acción ejecutada correctamente. Línea: 6
+3/10/2016 3:55:02 PM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+3/10/2016 5:46:50 PM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+3/10/2016 5:46:52 PM Acción ejecutada correctamente. Línea: 2
+3/10/2016 5:46:53 PM Acción ejecutada correctamente. Línea: 3
+3/10/2016 5:46:53 PM Acción ejecutada correctamente. Línea: 4
+3/10/2016 5:46:55 PM Acción ejecutada correctamente. Línea: 5
+3/10/2016 5:46:56 PM Acción ejecutada correctamente. Línea: 6
+3/10/2016 5:46:56 PM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+3/11/2016 5:15:30 AM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+3/11/2016 5:15:32 AM Acción ejecutada correctamente. Línea: 2
+3/11/2016 5:15:32 AM No se ejecutó correctamente la acción en gasolinera (línea: 3)
+3/11/2016 5:15:32 AM Acción ejecutada correctamente. Línea: 4
+3/11/2016 5:15:33 AM Acción ejecutada correctamente. Línea: 5
+3/11/2016 5:15:35 AM Acción ejecutada correctamente. Línea: 6
+3/11/2016 5:15:35 AM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+3/11/2016 5:15:44 AM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+3/11/2016 5:15:46 AM Acción ejecutada correctamente. Línea: 2
+3/11/2016 5:15:46 AM No se ejecutó correctamente la acción en gasolinera (línea: 3)
+3/11/2016 5:15:46 AM Acción ejecutada correctamente. Línea: 4
+3/11/2016 5:15:47 AM Acción ejecutada correctamente. Línea: 5
+3/11/2016 5:15:48 AM Acción ejecutada correctamente. Línea: 6
+3/11/2016 5:15:48 AM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
+3/11/2016 5:18:16 AM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+3/11/2016 5:18:47 AM Acción ejecutada correctamente. Línea: 2
+3/11/2016 5:19:07 AM No se ejecutó correctamente la acción en gasolinera (línea: 3)
+3/11/2016 5:19:33 AM Acción ejecutada correctamente. Línea: 4
+3/11/2016 5:19:42 AM Acción ejecutada correctamente. Línea: 5
+3/11/2016 5:48:22 AM Acción ejecutada correctamente. Línea: 6
+3/11/2016 5:48:22 AM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+

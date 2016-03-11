@@ -11,8 +11,12 @@ namespace Proyecto1_Mynor_Xico_1051916
     /// </summary>
     class Gasolinera
     {
+        // Instanciación de objetos Deposito
         Deposito diesel, regular, super;
+        //Instanciación de objetos Bomba
         Bomba bomba1, bomba2, bomba3, bomba4, bomba5, bomba6, bomba7;
+
+
         public Gasolinera(Deposito d1, Deposito d2, Deposito d3, Bomba b1, Bomba b2, Bomba b3, Bomba b4, Bomba b5, Bomba b6, Bomba b7)
         {
             diesel = d1;
@@ -44,6 +48,8 @@ namespace Proyecto1_Mynor_Xico_1051916
             {
                 if ((intTipoCombustible >= 0 && intTipoCombustible <= 3) && (intBomba >= 0 && intBomba <= 7))
                 {
+                    // Selecciona el tipo de combustible que se utilizará para la venta
+                    #region Selección de tipo de combustible
                     switch (intTipoCombustible)
                     {
                         case 1:
@@ -74,7 +80,11 @@ namespace Proyecto1_Mynor_Xico_1051916
                             bomba6._depositoAUsar = super;
                             bomba7._depositoAUsar = super;
                             break;
+                            #endregion
+
                     }
+                    // Realiza la venta por combustible
+                    #region Venta por cantidad de Combustible
                     if (dblCantidadCombustible != -1)
                     {
                         switch (intBomba)
@@ -102,7 +112,10 @@ namespace Proyecto1_Mynor_Xico_1051916
                                 break;
                         }
                     }
+                    #endregion
 
+                    // Realiza la venta por dinero de venta
+                    #region Venta por cantidad de quetzales
                     if (dblDineroVenta != -1)
                     {
                         switch (intBomba)
@@ -129,11 +142,10 @@ namespace Proyecto1_Mynor_Xico_1051916
                                 bomba7.venderPorQuetzales(dblDineroVenta);
                                 break;
                         }
-
+                        #endregion
                     }
                 }
                 return true;
-
             }
             catch
             {

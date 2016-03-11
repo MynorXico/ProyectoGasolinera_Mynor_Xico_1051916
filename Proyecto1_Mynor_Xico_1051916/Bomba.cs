@@ -8,36 +8,36 @@ namespace Proyecto1_Mynor_Xico_1051916
 {
     class Bomba
     {
-        // Definición de atributos de la 
+        // Definición de atributos de la clase
+        #region Atributos de la Clase
         private double _combustibleConsumido;
         private double _dineroConsumido;
         private string _label;
+        #endregion
 
-
+        // Instanciación de menús para el objeto
+        #region Instnciación de menús
         MenuSecundario menu1 = new MenuSecundario("", "Por Galón", "Por Monto de Dinero");
         MenuSecundario menu2 = new MenuSecundario("", "Diesel", "Regular", "Super");
+        #endregion
 
         // Constructor de la Clase
         public Bomba(string label)
         {
             _label = label;
         }
-        public Bomba()
-        {
 
-        }
-
+        // Depósito que se utilizará para las ventas
         public Deposito _depositoAUsar;
+
+        //Instnciación de objetos auxiliares
+        #region Objetos Auxiliares
         Formato objFormato = new Formato();
         Validador objValidador = new Validador();
+        #endregion
 
-        public void seleccionarCombustible(ref Deposito unDeposito)
-        {
-            if (unDeposito.cantCombustible <= unDeposito.inventarioMinimo)
-            {
-                _depositoAUsar = unDeposito;
-            }
-        }
+        // Propiedad de la clase
+        #region Propiedades
         public string label
         {
             get
@@ -49,7 +49,47 @@ namespace Proyecto1_Mynor_Xico_1051916
                 _label = value;
             }
         }
+        public double combustibleConsumido
+        {
+            get
+            {
+                return _combustibleConsumido;
+            }
+            set
+            {
+                _combustibleConsumido = value;
+            }
+        }
+        public double dineroConsumido
+        {
+            get
+            {
+                return _dineroConsumido;
+            }
+            set
+            {
+                _dineroConsumido = value;
+            }
+        }
+        #endregion
 
+        // Método utilizados para la venta
+        #region Métodos para Venta
+        /// <summary>
+        /// Método que se utiliza para seleccionar el depósito a utilizar para la venta
+        /// </summary>
+        /// <param name="unDeposito"></param>
+        public void seleccionarCombustible(ref Deposito unDeposito)
+        {
+            if (unDeposito.cantCombustible <= unDeposito.inventarioMinimo)
+            {
+                _depositoAUsar = unDeposito;
+            }
+        }
+        /// <summary>
+        ///  Método que se utiliza para vender combustible por quetzales
+        /// </summary>
+        /// <param name="cantidadQuetzales"></param>
         public void venderPorQuetzales(double cantidadQuetzales)
         {
             double cantidadGalones = cantidadQuetzales / _depositoAUsar.precioPorGalon;
@@ -63,7 +103,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                 _depositoAUsar.combustibleConsumido += cantidadGalones;
                 _depositoAUsar.dineroConsumido += cantidadQuetzales;
 
-                objFormato.mensajeExito("Se agregaron " + cantidadGalones +" galones " + "("+cantidadQuetzales+") de gasolina");
+                objFormato.mensajeExito("Se agregaron " + cantidadGalones +" galones " + "("+string.Format("{ 0:0.00}",(Math.Round(cantidadQuetzales)))+") de gasolina");
             }
             else
             {
@@ -73,6 +113,10 @@ namespace Proyecto1_Mynor_Xico_1051916
                 Console.ReadLine();
             }
         }   
+        /// <summary>
+        /// Método que se utiliza para vneder combustible por galones
+        /// </summary>
+        /// <param name="cantidadGalones"></param>
         public void venderPorGalones(double cantidadGalones)
         {
             double cantidadQuetzales = cantidadGalones * _depositoAUsar.precioPorGalon;
@@ -85,7 +129,7 @@ namespace Proyecto1_Mynor_Xico_1051916
 
                 _depositoAUsar.combustibleConsumido += cantidadGalones;
                 _depositoAUsar.dineroConsumido += cantidadQuetzales;
-                objFormato.mensajeExito("Se agregaron " + cantidadGalones + " galones " + "(" + cantidadQuetzales + ") de gasolina");
+                objFormato.mensajeExito("Se agregaron " + cantidadGalones + " galones " + "(" + string.Format("{0:0.00}" ,(Math.Round(cantidadQuetzales))) + ") de gasolina");
 
             }
             else
@@ -96,19 +140,26 @@ namespace Proyecto1_Mynor_Xico_1051916
                 Console.ReadLine();
             }
         }
+        /// <summary>
+        /// Método que se utiliza para mostrar el consumo de la Bomba
+        /// </summary>
+        /// <returns></returns>
         public string MostrarConsumo()
         {
             string a = "El número de galones consumidos de la " + label + " es: " + _combustibleConsumido;
             string b = "La cantidad de quetzales consumidos de la " + label + " es: " + _dineroConsumido;
             return (a + b);
         }
-
-
+        /// <summary>
+        /// Método que se utiliza para dispensar combustible 
+        /// </summary>
+        /// <param name="unDeposito">Depósito del cual se obtendrá la gasolina</param>
+        /// <param name="tipoDeVenta">Entero que indica el tipo ode venta que se utilizará para realizar la venta</param>
         public void Dispensar(Deposito unDeposito, int tipoDeVenta)
         {
             double dblCantidad = 0;
             bool cantidadValida = false;
-            do { 
+            do {
                 Console.WriteLine("Ingrese la cantidad de " + unDeposito.label + " que desea vender");
                 string strCantidad = Console.ReadLine();
                 Console.ResetColor();
@@ -142,6 +193,12 @@ namespace Proyecto1_Mynor_Xico_1051916
                     break;
             }
         }
+        #endregion
+
+
+        /// <summary>
+        /// Método que se utiliz para mostrar las ventas que se realizar on en la bomba
+        /// </summary>        
         public void mostrarVentas()
         {
             objFormato.escribirTitulo(_label);
