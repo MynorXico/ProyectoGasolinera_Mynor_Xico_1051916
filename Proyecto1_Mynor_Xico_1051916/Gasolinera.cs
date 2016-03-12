@@ -18,6 +18,7 @@ namespace Proyecto1_Mynor_Xico_1051916
 
         Formato objFormato = new Formato();
 
+        int intNumeroVentas = 0;
 
         public Gasolinera(Deposito d1, Deposito d2, Deposito d3, Bomba b1, Bomba b2, Bomba b3, Bomba b4, Bomba b5, Bomba b6, Bomba b7)
         {
@@ -48,7 +49,7 @@ namespace Proyecto1_Mynor_Xico_1051916
         {
             try
             {
-                if ((intTipoCombustible >= 0 && intTipoCombustible <= 3) && (intBomba >= 0 && intBomba <= 7))
+                if ((intTipoCombustible >= 0 && intTipoCombustible <= 3) && (intBomba >= 0 && intBomba <= 7) && (intNumeroVentas<=8))
                 {
                     // Selecciona el tipo de combustible que se utilizará para la venta
                     #region Selección de tipo de combustible
@@ -80,10 +81,9 @@ namespace Proyecto1_Mynor_Xico_1051916
                             bomba5._depositoAUsar = super;
                             bomba6._depositoAUsar = super;
                             bomba7._depositoAUsar = super;
-                            break;
-                            #endregion
-                    
+                            break;                    
                     }
+                    #endregion
                     // Realiza la venta por combustible
                     #region Venta por cantidad de Combustible
                     if (dblCantidadCombustible != -1)
@@ -114,6 +114,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                                     bomba7.venderPorGalones(dblCantidadCombustible);
                                     break;
                             }
+                            intNumeroVentas++;
                         }
                         else
                         {
@@ -152,15 +153,17 @@ namespace Proyecto1_Mynor_Xico_1051916
                                 case 7:
                                     bomba7.venderPorQuetzales(dblDineroVenta);
                                     break;
-                            }
-                            #endregion
+                            }intNumeroVentas++;
+                            
                         }
                         else
                         {
                             objFormato.mensajeError("El depósito que indica el archivo (" + diesel.label + ") no pede realizar la venta");
                             objFormato.mensajeError("   La cantidad de combustible es igual o inferior a su inventario mínimo");
                         }
+
                     }
+                    #endregion
                 }
                 return true;
             }

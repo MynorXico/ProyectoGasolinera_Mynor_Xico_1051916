@@ -21,6 +21,7 @@ namespace Proyecto1_Mynor_Xico_1051916
             // Definir Propiedades de la Consola
             Console.Title = "GASTROL - Mynor Xico";
             try {
+                System.Console.SetWindowSize(400, 150);
                 System.Console.WindowWidth = anchoPorDefecto;
                 System.Console.WindowHeight = altoPorDefecto;
                 System.Console.SetWindowPosition(-50, -50);

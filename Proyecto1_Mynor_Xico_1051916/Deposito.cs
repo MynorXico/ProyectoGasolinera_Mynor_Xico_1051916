@@ -190,33 +190,8 @@ namespace Proyecto1_Mynor_Xico_1051916
         /// <param name="cantidad">Cantidad que se venderá</param>
         public void venderCombustible(double cantidad)
         {
-            if (_cantCombustible < cantidad)
+            if (cantidad > _cantCombustible)
             {
-                objFormato.mensajeError("No es posible realizar la venta");
-                bool opcionValida = false;
-                do
-                {
-                    objFormato.mensajeError("La cantidad disponible en el depósito de " + label + " es de " + cantCombustible + " Galones (Q " + cantCombustible * precioPorGalon + ")");
-                    objFormato.pregunta("¿Desea vender esa cantidad??");
-                    menu1.EscribirMenuSecundario2ST();
-                    string opcion = Console.ReadLine();
-                    Console.ResetColor();
-                    switch (opcion)
-                    {
-                        case "1":
-                            opcionValida = true;
-                            venderCombustible(_cantCombustible);
-                            break;
-                        case "2":
-                            opcionValida = true;
-                            break;
-                        default:
-                            objFormato.mensajeError("Seleccione una opción válida");
-                            Console.Clear();
-                            break;
-                    }
-                } while (!opcionValida);
-
             }
             else
             {
@@ -229,11 +204,14 @@ namespace Proyecto1_Mynor_Xico_1051916
         /// </summary>
         public void mostrarVentas()
         {
-            objFormato.escribirTitulo(_label);
-            Console.WriteLine("Cantidad vendida en Galones: " + Math.Round(_combustibleConsumido, 2));
-            Console.WriteLine("Cantidad vendida en Quetzales: " + Math.Round(_dineroConsumido, 2));
-            Console.WriteLine("********************************************");
-            Console.ReadLine();
+            objFormato.pregunta("╔════════╗");
+            objFormato.pregunta("║" + _label);
+            objFormato.pregunta("╚════════╝");
+            Console.WriteLine("╔════════════════════════════════════════╗");
+            Console.WriteLine("║Cantidad vendida en Galones: " + Math.Round(_combustibleConsumido, 2));
+            Console.WriteLine("║Cantidad vendida en Quetzales: Q" + string.Format("{0:0.00}",(Math.Round(_dineroConsumido, 2))));
+            Console.WriteLine("╚════════════════════════════════════════╝");
+            System.Threading.Thread.Sleep(600);
         }
         #endregion
 

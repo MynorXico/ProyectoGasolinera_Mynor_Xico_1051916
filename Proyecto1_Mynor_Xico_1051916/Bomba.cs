@@ -19,6 +19,7 @@ namespace Proyecto1_Mynor_Xico_1051916
         #region Instnciación de menús
         MenuSecundario menu1 = new MenuSecundario("", "Por Galón", "Por Monto de Dinero");
         MenuSecundario menu2 = new MenuSecundario("", "Diesel", "Regular", "Super");
+        MenuSecundario menu3 = new MenuSecundario("", "Si", "No");
         #endregion
 
         // Constructor de la Clase
@@ -120,6 +121,7 @@ namespace Proyecto1_Mynor_Xico_1051916
         public void venderPorGalones(double cantidadGalones)
         {
             double cantidadQuetzales = cantidadGalones * _depositoAUsar.precioPorGalon;
+
             if (cantidadGalones < _depositoAUsar.cantCombustible)
             {
                 _depositoAUsar.cantCombustible -= cantidadGalones;
@@ -184,14 +186,80 @@ namespace Proyecto1_Mynor_Xico_1051916
             } while (!cantidadValida);
             switch (tipoDeVenta){
                 case 1:
-                    _combustibleConsumido += dblCantidad;
-                    _dineroConsumido += dblCantidad * unDeposito.precioPorGalon;
-                    unDeposito.venderCombustible(dblCantidad);
+                    if (dblCantidad <= unDeposito.cantCombustible)
+                    {
+                        _combustibleConsumido += unDeposito.cantCombustible;
+                        _dineroConsumido += unDeposito.cantCombustible * unDeposito.precioPorGalon;
+                        unDeposito.venderCombustible(dblCantidad);
+                        objFormato.mensajeExito("Se han vendido " + dblCantidad + " galones (Q +" + string.Format("{0:0.00}", (dblCantidad * unDeposito.precioPorGalon)) + ") de " + unDeposito.label + " desde la" + label);
+                    }
+                    else {
+                        objFormato.mensajeError("No es posible realizar la venta");
+                        bool opcionValida1 = false;
+                        do
+                        {
+                            objFormato.mensajeError("La cantidad disponible en el depósito de " + unDeposito.label + " es de " + unDeposito.cantCombustible + " Galones (Q " + string.Format("{0:0.00}",(unDeposito.cantCombustible * unDeposito.precioPorGalon)) + ")");
+                            objFormato.pregunta("¿Desea vender esa cantidad??");
+                            menu3.EscribirMenuSecundario2ST();
+                            string opcion = Console.ReadLine();
+                            Console.ResetColor();
+                            switch (opcion)
+                            {
+                                case "1":
+                                    opcionValida1 = true;
+                                    _combustibleConsumido += unDeposito.cantCombustible;
+                                    _dineroConsumido += unDeposito.cantCombustible * unDeposito.precioPorGalon;
+                                    unDeposito.venderCombustible(unDeposito.cantCombustible);
+                                    objFormato.mensajeExito("Se han vendido " + unDeposito.cantCombustible + " galones (Q " + string.Format("{0:0.00}",(unDeposito.cantCombustible*unDeposito.precioPorGalon))+") de  " + unDeposito.label + " desde la" + label);
+                                    break;
+                                case "2":
+                                    opcionValida1 = true;
+                                    break;
+                                default:
+                                    objFormato.mensajeError("Seleccione una opción válida");
+                                    Console.Clear();
+                                    break;
+                            }
+                        } while (!opcionValida1);
+                    }
                     break;
                 case 2:
-                    _combustibleConsumido += dblCantidad / unDeposito.precioPorGalon;
-                    _dineroConsumido += dblCantidad;
-                    unDeposito.venderCombustible(dblCantidad / unDeposito.precioPorGalon);
+                    if (dblCantidad <= unDeposito.cantCombustible)
+                    {
+                        _combustibleConsumido += dblCantidad / unDeposito.precioPorGalon;
+                        _dineroConsumido += dblCantidad;
+                        unDeposito.venderCombustible(dblCantidad / unDeposito.precioPorGalon);
+                        objFormato.mensajeExito("Se han vendido " + dblCantidad + " galones (Q " + string.Format("{0:0.00}", (dblCantidad * unDeposito.precioPorGalon)) + ") de  " + unDeposito.label + " desde la" + label);
+
+                    }
+                    objFormato.mensajeError("No es posible realizar la venta");
+                   
+                    bool opcionValida = false;
+                    do
+                    {
+                        objFormato.mensajeError("La cantidad disponible en el depósito de " + unDeposito.label + " es de " + unDeposito.cantCombustible + " Galones (Q " + string.Format("{0:0.00}",(unDeposito.cantCombustible * unDeposito.precioPorGalon)) + ")");
+                        objFormato.pregunta("¿Desea vender esa cantidad??");
+                        menu3.EscribirMenuSecundario2ST();
+                        string opcion = Console.ReadLine();
+                        Console.ResetColor();
+                        switch (opcion)
+                        {
+                            case "1":
+                                opcionValida = true;
+                                unDeposito.venderCombustible(unDeposito.cantCombustible);
+                                _combustibleConsumido += unDeposito.cantCombustible / unDeposito.precioPorGalon;
+                                _dineroConsumido += unDeposito.cantCombustible;
+                                objFormato.mensajeExito("Se han vendido " + unDeposito.cantCombustible + " galones(Q " + string.Format("{0:0.00}", (unDeposito.cantCombustible*unDeposito.precioPorGalon)) + ") de " + unDeposito.label + " desde la " + label);
+                                break;
+                            case "2":
+                                opcionValida = true;
+                                break;
+                            default:
+                                objFormato.mensajeError("Seleccione una opción válida");
+                                Console.Clear();
+                                break;
+                        }
+                    } while (!opcionValida);
                     break;
             }
         }
@@ -203,11 +271,14 @@ namespace Proyecto1_Mynor_Xico_1051916
         /// </summary>        
         public void mostrarVentas()
         {
-            objFormato.escribirTitulo(_label);
-            Console.WriteLine("Cantidad vendida en Galones: " + Math.Round(_combustibleConsumido, 2));
-            Console.WriteLine("Cantidad vendida en Quetzales: " + Math.Round(_dineroConsumido, 2));
-            Console.WriteLine("********************************************");
-            Console.ReadLine();
+            objFormato.pregunta("╔═══════╗");
+            objFormato.pregunta("║" + _label + "║");
+            objFormato.pregunta("╚═══════╝");
+            Console.WriteLine("╔═════════════════════════════════════════╗");
+            Console.WriteLine("║Cantidad vendida en Galones: " + Math.Round(_combustibleConsumido, 2));
+            Console.WriteLine("║Cantidad vendida en Quetzales: " + string.Format("{0:0.00}",(Math.Round(_dineroConsumido, 2))));
+            Console.WriteLine("╚═════════════════════════════════════════╝");
+            System.Threading.Thread.Sleep(600);
         }
         
         

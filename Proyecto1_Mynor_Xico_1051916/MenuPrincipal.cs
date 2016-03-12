@@ -49,7 +49,7 @@ namespace Proyecto1_Mynor_Xico_1051916
         /// </summary>
         public void pantallaPrincipal()
         {
-            //AnimaciónBienvenida();
+            AnimaciónBienvenida();
             Console.WriteLine("Presione una tecla para continuar...");
             Console.ResetColor();
             Console.ReadKey(false);
@@ -82,15 +82,15 @@ namespace Proyecto1_Mynor_Xico_1051916
                         break;
                     case "5":
                         Console.Clear();
-                        objFormato.escribirContenido("Gracias por utilizar nuestros servicios");
+                        objFormato.escribirContenido("║Gracias por utilizar nuestros servicios");
                         System.Threading.Thread.Sleep(900);
-                        objFormato.escribirContenido("Esperamos haberle servido de la mejor manera");
+                        objFormato.escribirContenido("║Esperamos haberle servido de la mejor manera");
                         System.Threading.Thread.Sleep(900);
                         objFormato.mensajeExito("Finaliza Programa...");
                         bolSalir = true;
                         break;
                     default:
-                        objFormato.mensajeError("***ERROR * **Opción no válida");
+                        objFormato.mensajeError("***ERROR*** Opción no válida");
                         break;
                 }
                 Console.Clear();
@@ -102,31 +102,31 @@ namespace Proyecto1_Mynor_Xico_1051916
         /// </summary>
         static void AnimaciónBienvenida()
         {
-            for (int i = 4; i >= 0; i--)
+            for (int i = 2; i >= 0; i--)
             {
                 Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine();
                 Console.WriteLine("          █▀▄ ▀ █▀▀ █▄░█ ▐▌░▐▌ █▀▀ █▄░█ ▀ █▀▄ ▄▀▄     ▄▀▄     ▄▀▀░ ▄▀▄ ▄▀▀ ▀█▀ █▀▀▄ ▄▀▄ █░░");
                 Console.WriteLine("          █▀█ █ █▀▀ █░▀█ ░▀▄▀░ █▀▀ █░▀█ █ █░█ █░█     █▀█     █░▀▌ █▀█ ░▀▄ ░█░ █▐█▀ █░█ █░▄");
                 Console.WriteLine("          ▀▀░ ▀ ▀▀▀ ▀░░▀ ░░▀░░ ▀▀▀ ▀░░▀ ▀ ▀▀░ ░▀░     ▀░▀     ▀▀▀░ ▀░▀ ▀▀░ ░▀░ ▀░▀▀ ░▀░ ▀▀▀");
                 Console.ResetColor();
-                System.Threading.Thread.Sleep(300);
+                System.Threading.Thread.Sleep(150);
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("     █▀▄ ▀ █▀▀ █▄░█ ▐▌░▐▌ █▀▀ █▄░█ ▀ █▀▄ ▄▀▄     ▄▀▄     ▄▀▀░ ▄▀▄ ▄▀▀ ▀█▀ █▀▀▄ ▄▀▄ █░░");
                 Console.WriteLine("     █▀█ █ █▀▀ █░▀█ ░▀▄▀░ █▀▀ █░▀█ █ █░█ █░█     █▀█     █░▀▌ █▀█ ░▀▄ ░█░ █▐█▀ █░█ █░▄");
                 Console.WriteLine("     ▀▀░ ▀ ▀▀▀ ▀░░▀ ░░▀░░ ▀▀▀ ▀░░▀ ▀ ▀▀░ ░▀░     ▀░▀     ▀▀▀░ ▀░▀ ▀▀░ ░▀░ ▀░▀▀ ░▀░ ▀▀▀");
                 Console.ResetColor();
-                System.Threading.Thread.Sleep(300);
+                System.Threading.Thread.Sleep(150);
                 Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine();
                 Console.WriteLine("  █▀▄ ▀ █▀▀ █▄░█ ▐▌░▐▌ █▀▀ █▄░█ ▀ █▀▄ ▄▀▄     ▄▀▄     ▄▀▀░ ▄▀▄ ▄▀▀ ▀█▀ █▀▀▄ ▄▀▄ █░░");
                 Console.WriteLine("  █▀█ █ █▀▀ █░▀█ ░▀▄▀░ █▀▀ █░▀█ █ █░█ █░█     █▀█     █░▀▌ █▀█ ░▀▄ ░█░ █▐█▀ █░█ █░▄");
                 Console.WriteLine("  ▀▀░ ▀ ▀▀▀ ▀░░▀ ░░▀░░ ▀▀▀ ▀░░▀ ▀ ▀▀░ ░▀░     ▀░▀     ▀▀▀░ ▀░▀ ▀▀░ ░▀░ ▀░▀▀ ░▀░ ▀▀▀");
                 Console.ResetColor();
-                System.Threading.Thread.Sleep(300);
+                System.Threading.Thread.Sleep(150);
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("     █▀▄ ▀ █▀▀ █▄░█ ▐▌░▐▌ █▀▀ █▄░█ ▀ █▀▄ ▄▀▄     ▄▀▄     ▄▀▀░ ▄▀▄ ▄▀▀ ▀█▀ █▀▀▄ ▄▀▄ █░░");
@@ -135,12 +135,6 @@ namespace Proyecto1_Mynor_Xico_1051916
                 Console.ResetColor();
                 switch (i)
                 {
-                    case 4:
-                        Console.WriteLine("********************");
-                        break;
-                    case 3:
-                        Console.WriteLine("*****************************************");
-                        break;
                     case 2:
                         Console.WriteLine("************************************************************"); ;
                         break;
@@ -151,7 +145,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                         Console.WriteLine("******************************************************************************************");
                         break;
                 }
-                System.Threading.Thread.Sleep(300);
+                System.Threading.Thread.Sleep(75);
             }
         }
         /// <summary>

@@ -193,11 +193,14 @@ namespace Proyecto1_Mynor_Xico_1051916
         public void mostrarVentas()
         {
             calcularVentas(ref _combustibleConsumido, ref _dineroConsumido);
-            objFormato.pregunta("Ventas de la Gasolinera");
-            Console.WriteLine("Cantidad vendida en Galones:   " + Math.Round(_combustibleConsumido, 2));
-            Console.WriteLine("Cantidad vendida en Quetzales: " + Math.Round(_dineroConsumido, 2));
-            Console.WriteLine("********************************************");
-            Console.ReadLine();
+            objFormato.pregunta("╔══════════════════════════╗");
+            objFormato.pregunta("║Ventas de la Gasolinera   ║");
+            objFormato.pregunta("╚══════════════════════════╝");
+            Console.WriteLine("╔═════════════════════════════════════════════════╗");
+            Console.WriteLine("║Cantidad vendida en Galones:   " + Math.Round(_combustibleConsumido, 2));
+            Console.WriteLine("║Cantidad vendida en Quetzales:  Q" + string.Format("{0:0.00}",( Math.Round(_dineroConsumido, 2))));
+            Console.WriteLine("╚═════════════════════════════════════════════════╝");
+            System.Threading.Thread.Sleep(500);
         }
         /// <summary>
         /// Método que muestra la información de las ventas realizadas en la gasolinera
@@ -206,7 +209,7 @@ namespace Proyecto1_Mynor_Xico_1051916
         {
             // Muestra las ventas por Bomba
             Console.Clear();
-            objFormato.pregunta("Información de las Ventas Realizadas por Bomba");
+            objFormato.escribirTitulo("Información de las Ventas Realizadas por Bomba");
             objBomba1.mostrarVentas();
             objBomba2.mostrarVentas();
             objBomba3.mostrarVentas();
@@ -214,12 +217,16 @@ namespace Proyecto1_Mynor_Xico_1051916
             objBomba5.mostrarVentas();
             objBomba6.mostrarVentas();
             objBomba7.mostrarVentas();
+            Console.WriteLine("Presione una tecla para pasar a las ventas realizadas por depósito");
+            Console.ReadKey();
             // Muestra las ventas por Depósito
             Console.Clear();
-            objFormato.pregunta("Información de las ventas Realizadas por Depósito");
+            objFormato.escribirTitulo("Información de las ventas Realizadas por Depósito");
             objDepositoDiesel.mostrarVentas();
             objDepositoRegular.mostrarVentas();
             objDepositoSuper.mostrarVentas();
+            Console.WriteLine("Presione una tecla para pasar a las ventas realizadas en la gasolinera");
+            Console.ReadKey();
             // Muestra las ventas de la gasolinera
             Console.Clear();
             mostrarVentas();
@@ -232,17 +239,26 @@ namespace Proyecto1_Mynor_Xico_1051916
         public void mostrarGanancia()
         {
             calcularGanancias(ref _ganancia);
-            objFormato.pregunta("Ganancias en la Gasolinera");
+            objFormato.pregunta("╔══════════════════════════╗");
+            objFormato.pregunta("║Ganancias en la Gasolinera║");
+            objFormato.pregunta("╚══════════════════════════╝");
             if (_ganancia >= 0)
             {
-                Console.WriteLine("La ganancia ha sido de:  Q " + _ganancia);
-                Console.ReadLine();
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("╔══════════════════════════════════════════╗");
+                Console.WriteLine("║La ganancia ha sido de:  Q " + string.Format("{0:0.00}",(_ganancia)) );
+                Console.WriteLine("╚══════════════════════════════════════════╝");
             }
             else
             {
-                objFormato.mensajeError("No han habido ganancias, la pérdida ha sido de " + -_ganancia);
-                Console.ReadLine();
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                objFormato.mensajeError("╔═════════════════════════════════════════════════════════════════╗");
+                objFormato.mensajeError("No han habido ganancias, la pérdida ha sido de " + string.Format("{0:0.00}",(-_ganancia)));
+                objFormato.mensajeError("╚═════════════════════════════════════════════════════════════════╝");
             }
+            Console.ResetColor();
+            Console.WriteLine("Presione una tecla para continuar.");
+            Console.ReadKey();
         }
         /// <summary>
         /// Método que muestra las compras de la gasolinera
@@ -250,10 +266,13 @@ namespace Proyecto1_Mynor_Xico_1051916
         public void mostarComprasQ()
         {
             calcularComprasQ(ref _comprasQuetzales);
-            objFormato.pregunta("Compras de la Gasolinera");
-            Console.WriteLine("Cantidad comprada en Quetzales: " + Math.Round(_comprasQuetzales, 2));
-            Console.WriteLine("********************************************");
-            Console.ReadLine();
+            objFormato.pregunta("╔═════════════════════════╗");
+            objFormato.pregunta("║Compras de la Gasolinera ║");
+            objFormato.pregunta("╚═════════════════════════╝");
+            Console.WriteLine("╔═══════════════════════════════════════════════════╗");
+            Console.WriteLine("║Cantidad comprada en Quetzales: " + string.Format("{0:0.00}",(Math.Round(_comprasQuetzales, 2))));
+            Console.WriteLine("╚═══════════════════════════════════════════════════╝");
+            System.Threading.Thread.Sleep(500);
         }
         #endregion
         
@@ -270,7 +289,8 @@ namespace Proyecto1_Mynor_Xico_1051916
             if ((deposito.cantCombustible + cantidad) <= deposito.limit)
             {
                 deposito.ingresarCombustible(cantidad, costo);
-                objFormato.mensajeExito("Se agregaron correctamente " + cantidad + " galones de combustible a un precio de Q" + string.Format("{0:0.00}", costo));
+                objFormato.mensajeExito("Se agregaron correctamente " + cantidad + " galones de combustible con un costo de Q" + string.Format("{0:0.00}", costo));
+                
                 System.Threading.Thread.Sleep(1500);
             }
             else
@@ -538,6 +558,10 @@ namespace Proyecto1_Mynor_Xico_1051916
                                 else
                                 {
                                     objFormato.mensajeError("Ya no queda combustible en ningún depósito");
+                                    continuarVentas = false;
+                                }
+                                if(!(objDepositoDiesel.disponible() || objDepositoRegular.disponible() || objDepositoSuper.disponible()))
+                                {
                                     continuarVentas = false;
                                 }
                             } while (!opcionValida1 && continuarVentas);
