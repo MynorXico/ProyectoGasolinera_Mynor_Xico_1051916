@@ -103,7 +103,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                 _depositoAUsar.combustibleConsumido += cantidadGalones;
                 _depositoAUsar.dineroConsumido += cantidadQuetzales;
 
-                objFormato.mensajeExito("Se agregaron " + cantidadGalones +" galones " + "("+string.Format("{ 0:0.00}",(Math.Round(cantidadQuetzales)))+") de gasolina");
+                objFormato.mensajeExito("Se vendieron " + Math.Round(cantidadGalones, 2) +" galones " + "(Q "+ string.Format("{0:0.00}",((Math.Round(cantidadQuetzales, 2))))+") de gasolina desde la " + this.label);
             }
             else
             {
@@ -129,8 +129,8 @@ namespace Proyecto1_Mynor_Xico_1051916
 
                 _depositoAUsar.combustibleConsumido += cantidadGalones;
                 _depositoAUsar.dineroConsumido += cantidadQuetzales;
-                objFormato.mensajeExito("Se agregaron " + cantidadGalones + " galones " + "(" + string.Format("{0:0.00}" ,(Math.Round(cantidadQuetzales))) + ") de gasolina");
-
+                objFormato.mensajeExito("Se vendieron " + cantidadGalones + " galones " + "(Q " + string.Format("{0:0.00}" ,(Math.Round(cantidadQuetzales))) + ") de gasolina desde la " + this.label);
+                
             }
             else
             {
@@ -160,7 +160,9 @@ namespace Proyecto1_Mynor_Xico_1051916
             double dblCantidad = 0;
             bool cantidadValida = false;
             do {
-                Console.WriteLine("Ingrese la cantidad de " + unDeposito.label + " que desea vender");
+                objFormato.pregunta("╔══════════════════════════════════════════════╗");
+                objFormato.pregunta("║Ingrese la cantidad de " + unDeposito.label + " que desea vender");
+                objFormato.pregunta("╚══════════════════════════════════════════════╝");
                 string strCantidad = Console.ReadLine();
                 Console.ResetColor();
                 if (objValidador.esNumeroDouble(strCantidad))

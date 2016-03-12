@@ -131,7 +131,6 @@ namespace Proyecto1_Mynor_Xico_1051916
         public void EscribirMenuSecundario3()
         {
             Console.ResetColor();
-            objFormato.mensajeBienvenida(_titulo);
             objFormato.menuFormato(_opcion1, _opcion2, _opcion3);
         }
 

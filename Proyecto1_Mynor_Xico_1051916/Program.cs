@@ -19,13 +19,15 @@ namespace Proyecto1_Mynor_Xico_1051916
 
 
             // Definir Propiedades de la Consola
-            Console.Title = "GASONTROL - Mynor Xico";
+            Console.Title = "GASTROL - Mynor Xico";
             try {
                 System.Console.WindowWidth = anchoPorDefecto;
                 System.Console.WindowHeight = altoPorDefecto;
                 System.Console.SetWindowPosition(-50, -50);
             }
-            catch{}
+            catch{
+                Console.WriteLine("Ocurrió un error ajustando las dimensiones de la ventana de la consola.");
+            }
 
             // Instanciación de objeto Menú Principal
             MenuPrincipal objMenuPrincipal = new MenuPrincipal();

@@ -49,7 +49,7 @@ namespace Proyecto1_Mynor_Xico_1051916
         /// </summary>
         public void pantallaPrincipal()
         {
-            AnimaciónBienvenida();
+            //AnimaciónBienvenida();
             Console.WriteLine("Presione una tecla para continuar...");
             Console.ResetColor();
             Console.ReadKey(false);
@@ -90,6 +90,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                         bolSalir = true;
                         break;
                     default:
+                        objFormato.mensajeError("***ERROR * **Opción no válida");
                         break;
                 }
                 Console.Clear();
@@ -103,7 +104,6 @@ namespace Proyecto1_Mynor_Xico_1051916
         {
             for (int i = 4; i >= 0; i--)
             {
-                int frecuence = 5*(5 - i);
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine();
@@ -111,7 +111,6 @@ namespace Proyecto1_Mynor_Xico_1051916
                 Console.WriteLine("          █▀█ █ █▀▀ █░▀█ ░▀▄▀░ █▀▀ █░▀█ █ █░█ █░█     █▀█     █░▀▌ █▀█ ░▀▄ ░█░ █▐█▀ █░█ █░▄");
                 Console.WriteLine("          ▀▀░ ▀ ▀▀▀ ▀░░▀ ░░▀░░ ▀▀▀ ▀░░▀ ▀ ▀▀░ ░▀░     ▀░▀     ▀▀▀░ ▀░▀ ▀▀░ ░▀░ ▀░▀▀ ░▀░ ▀▀▀");
                 Console.ResetColor();
-                Console.Beep((frecuence * 10), 10);
                 System.Threading.Thread.Sleep(300);
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Gray;
@@ -119,7 +118,6 @@ namespace Proyecto1_Mynor_Xico_1051916
                 Console.WriteLine("     █▀█ █ █▀▀ █░▀█ ░▀▄▀░ █▀▀ █░▀█ █ █░█ █░█     █▀█     █░▀▌ █▀█ ░▀▄ ░█░ █▐█▀ █░█ █░▄");
                 Console.WriteLine("     ▀▀░ ▀ ▀▀▀ ▀░░▀ ░░▀░░ ▀▀▀ ▀░░▀ ▀ ▀▀░ ░▀░     ▀░▀     ▀▀▀░ ▀░▀ ▀▀░ ░▀░ ▀░▀▀ ░▀░ ▀▀▀");
                 Console.ResetColor();
-                Console.Beep((frecuence*100), 10);
                 System.Threading.Thread.Sleep(300);
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Blue;
@@ -128,7 +126,6 @@ namespace Proyecto1_Mynor_Xico_1051916
                 Console.WriteLine("  █▀█ █ █▀▀ █░▀█ ░▀▄▀░ █▀▀ █░▀█ █ █░█ █░█     █▀█     █░▀▌ █▀█ ░▀▄ ░█░ █▐█▀ █░█ █░▄");
                 Console.WriteLine("  ▀▀░ ▀ ▀▀▀ ▀░░▀ ░░▀░░ ▀▀▀ ▀░░▀ ▀ ▀▀░ ░▀░     ▀░▀     ▀▀▀░ ▀░▀ ▀▀░ ░▀░ ▀░▀▀ ░▀░ ▀▀▀");
                 Console.ResetColor();
-                Console.Beep((frecuence * 75), 10);
                 System.Threading.Thread.Sleep(300);
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Gray;
@@ -136,7 +133,6 @@ namespace Proyecto1_Mynor_Xico_1051916
                 Console.WriteLine("     █▀█ █ █▀▀ █░▀█ ░▀▄▀░ █▀▀ █░▀█ █ █░█ █░█     █▀█     █░▀▌ █▀█ ░▀▄ ░█░ █▐█▀ █░█ █░▄");
                 Console.WriteLine("     ▀▀░ ▀ ▀▀▀ ▀░░▀ ░░▀░░ ▀▀▀ ▀░░▀ ▀ ▀▀░ ░▀░     ▀░▀     ▀▀▀░ ▀░▀ ▀▀░ ░▀░ ▀░▀▀ ░▀░ ▀▀▀");
                 Console.ResetColor();
-                Console.Beep((frecuence * 50), 10);
                 switch (i)
                 {
                     case 4:

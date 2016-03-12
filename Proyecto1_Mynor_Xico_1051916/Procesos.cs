@@ -139,11 +139,12 @@ namespace Proyecto1_Mynor_Xico_1051916
         /// </summary>
         public void MostrarCombustible()
         {
-            
-            objFormato.pregunta("Cantidad de Gasolina en los Depósitos");
-            string strDiesel = "  La cantidad de gasolina en el depósito de Diesel es:  " + Math.Round(objDepositoDiesel.cantCombustible, 2) + "/" + objDepositoDiesel.limit +". Espacio libre: " + (objDepositoDiesel.limit-objDepositoDiesel.cantCombustible);
-            string strRegular = "\n  La cantidad de gasolina en el depósito de Regular es: " + Math.Round(objDepositoRegular.cantCombustible, 2) + "/" + objDepositoDiesel.limit + ". Espacio libre: " + (objDepositoRegular.limit - objDepositoRegular.cantCombustible);
-            string strSuper = "\n  La cantidad de gasolina en el depósito de Super es:   " + Math.Round(objDepositoSuper.cantCombustible, 2) + "/" + objDepositoDiesel.limit + ". Espacio libre: " + (objDepositoSuper.limit - objDepositoSuper.cantCombustible);
+            objFormato.pregunta("╔═════════════════════════════════════╗");
+            objFormato.pregunta("║Cantidad de Gasolina en los Depósitos║");
+            objFormato.pregunta("╚═════════════════════════════════════╝");
+            string strDiesel = "║  La cantidad de gasolina en el depósito de Diesel es:  " + Math.Round(objDepositoDiesel.cantCombustible, 2) + "/" + objDepositoDiesel.limit +". Espacio libre: " + string.Format("{0:0.00}", (objDepositoDiesel.limit-objDepositoDiesel.cantCombustible));
+            string strRegular = "\n║  La cantidad de gasolina en el depósito de Regular es: " + Math.Round(objDepositoRegular.cantCombustible, 2) + "/" + objDepositoDiesel.limit + ". Espacio libre: " + string.Format("{0:0.00}", (objDepositoRegular.limit - objDepositoRegular.cantCombustible));
+            string strSuper = "\n║  La cantidad de gasolina en el depósito de Super es:   " + Math.Round(objDepositoSuper.cantCombustible, 2) + "/" + objDepositoDiesel.limit + ". Espacio libre: " + string.Format("{0:0.00}", (objDepositoSuper.limit - objDepositoSuper.cantCombustible));
 
             string output = strDiesel + strRegular + strSuper;
             objFormato.escribirContenido(output);
@@ -176,10 +177,12 @@ namespace Proyecto1_Mynor_Xico_1051916
         /// </summary>
         public void MostrarPrecios()
         {
-            objFormato.pregunta("Precios por Galón de Combustible");
-            string strDiesel = "  El precio por galón del Diesel es:    Q." + string.Format("{0:0.00}", (Math.Round(objDepositoDiesel.precioPorGalon, 2)));
-            string strRegular = "\n  El precio por galón de Regular es:    Q." + string.Format("{0:0.00}", (Math.Round(objDepositoRegular.precioPorGalon, 2)));
-            string strSuper = "\n  El precio por galón de Súper es:      Q." + string.Format("{0:0.00}", (Math.Round(objDepositoSuper.precioPorGalon, 2)));
+            objFormato.pregunta("╔════════════════════════════════╗");
+            objFormato.pregunta("║Precios por Galón de Combustible║");
+            objFormato.pregunta("╚════════════════════════════════╝");
+            string strDiesel = "║  El precio por galón del Diesel es:    Q." + string.Format("{0:0.00}", (Math.Round(objDepositoDiesel.precioPorGalon, 2)));
+            string strRegular = "\n║  El precio por galón de Regular es:    Q." + string.Format("{0:0.00}", (Math.Round(objDepositoRegular.precioPorGalon, 2)));
+            string strSuper = "\n║  El precio por galón de Súper es:      Q." + string.Format("{0:0.00}", (Math.Round(objDepositoSuper.precioPorGalon, 2)));
 
             string output = strDiesel + strRegular + strSuper;
             objFormato.escribirContenido(output);
@@ -267,7 +270,7 @@ namespace Proyecto1_Mynor_Xico_1051916
             if ((deposito.cantCombustible + cantidad) <= deposito.limit)
             {
                 deposito.ingresarCombustible(cantidad, costo);
-                objFormato.mensajeExito("Se agregaron correctamente " + cantidad + " galones de combustible a un precio de " + costo);
+                objFormato.mensajeExito("Se agregaron correctamente " + cantidad + " galones de combustible a un precio de Q" + string.Format("{0:0.00}", costo));
                 System.Threading.Thread.Sleep(1500);
             }
             else
@@ -302,11 +305,14 @@ namespace Proyecto1_Mynor_Xico_1051916
             bool opcionValida = true;
             do
             {
+                objFormato.escribirTitulo("   Definir precios por Combustible    ");
                 MostrarPrecios();
                 double precioNuevo = 0;
                 bool precioValido = false;
                 // Pregunta al usuario si desea ingresar nuevo precio para unDeposito
-                objFormato.pregunta("¿Desea Ingresar Nuevo Precio para " + unDeposito.label + "?");
+                objFormato.pregunta("╔══════════════════════════════════════════╗");
+                objFormato.pregunta("║¿Desea Ingresar Nuevo Precio para " + unDeposito.label + "?");
+                objFormato.pregunta("╚══════════════════════════════════════════╝");
                 objMenu1.EscribirMenuSecundario2ST();
                 string opcion = Console.ReadLine();
                 switch (opcion)
@@ -316,10 +322,12 @@ namespace Proyecto1_Mynor_Xico_1051916
                         {
                             Console.ResetColor();
                             Console.Clear();
-                            objFormato.escribirTitulo("Definir Nuevo Precio");
+                            objFormato.escribirTitulo("   Definir precios por Combustible    ");
                             objFormato.escribirContenido("  El costo por galón actual del " + unDeposito.label+" es:    Q." + string.Format("{0:0.00}", (Math.Round(unDeposito.costoPorGalon, 2))));
                             objFormato.escribirContenido("  El precio por galón actual del " + unDeposito.label+" es:    Q." + string.Format("{0:0.00}", (Math.Round(unDeposito.precioPorGalon, 2))));
-                            Console.WriteLine("Ingrese el nuevo precio de " + unDeposito.label + " que desea.");
+                            objFormato.pregunta("╔════════════════════════════════════════════╗");
+                            objFormato.pregunta("║Ingrese el nuevo precio de " + unDeposito.label + " que desea");
+                            objFormato.pregunta("╚════════════════════════════════════════════╝");
                             string strCantidad = Console.ReadLine();
                             // El usuario ingresa el nuevo precio para unDeposito
                             if (objValidador.esNumeroDouble(strCantidad))
@@ -333,6 +341,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                                         // Si el precio Nuevo es mayor al precio por actual, se cambia el precio
                                         unDeposito.indicarNuevoPrecio(precioNuevo);
                                         objFormato.mensajeExito("Se ha fijado un nuevo precio para " + unDeposito.label + ".");
+                                        objFormato.mensajeExito("El nuevo precio de " + unDeposito.label + " es de: Q" + string.Format("{0:0.00}", precioNuevo));
                                     }
                                     else
                                     {
@@ -358,7 +367,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                         // Solicita la usuario una opción válida en caso de que no la haya ingresado
                         Console.ResetColor();
                         opcionValida = false;
-                        objFormato.mensajeError("Ingrese un número válido");
+                        objFormato.mensajeError(" ***ERROR*** Opción no válida");
                         Console.Clear();
                         break;
                 }
@@ -396,9 +405,11 @@ namespace Proyecto1_Mynor_Xico_1051916
                         {
                             Console.ResetColor();
                             Console.Clear();
-                            objFormato.escribirTitulo("Ingreso de " + unDeposito.label);
-                            objFormato.escribirContenido("  La cantidad de gasolina en el depósito de " +unDeposito.label + " es:  " + Math.Round(unDeposito.cantCombustible, 2) + "/" + unDeposito.limit + ". Espacio libre: " + (unDeposito.limit - unDeposito.cantCombustible));
-                            Console.WriteLine("Ingrese la cantidad de " + unDeposito.label + " en galones que desea ingresar:");
+                            objFormato.escribirTitulo("           Ingreso de " + unDeposito.label+"           ");
+                            objFormato.escribirContenido("  La cantidad de gasolina en el depósito de " +unDeposito.label + " es:  " + Math.Round(unDeposito.cantCombustible, 2) + "/" + unDeposito.limit + ". Espacio libre: " + string.Format("{0:0.00}", (unDeposito.limit - unDeposito.cantCombustible)));
+                            objFormato.pregunta("╔═══════════════════════════════════════════════════════════╗");
+                            objFormato.pregunta("║Ingrese la cantidad de " + unDeposito.label + " en galones que desea ingresar");
+                            objFormato.pregunta("╚═══════════════════════════════════════════════════════════╝");
                             string strCantidad = Console.ReadLine();
                             // Valida que la cantidad de galones ingresada sea un número real
                             if (objValidador.esNumeroDouble(strCantidad))
@@ -419,8 +430,10 @@ namespace Proyecto1_Mynor_Xico_1051916
                                 Console.ResetColor();
                                 Console.Clear();
                                 objFormato.escribirTitulo("Ingreso de " + unDeposito.label);
-                                objFormato.escribirContenido("  La cantidad de gasolina en el depósito de " + unDeposito.label + " es:  " + Math.Round(unDeposito.cantCombustible, 2) + "/" + unDeposito.limit + ". Espacio libre: " + (unDeposito.limit - unDeposito.cantCombustible));
-                                Console.WriteLine("Ingrese el costo por galón del combustible");
+                                objFormato.escribirContenido("  La cantidad de gasolina en el depósito de " + unDeposito.label + " es:  " + Math.Round(unDeposito.cantCombustible, 2) + "/" + unDeposito.limit + ". Espacio libre: " + string.Format("{0:0.00}", (Math.Round(unDeposito.limit - unDeposito.cantCombustible))));
+                                objFormato.pregunta("╔══════════════════════════════════════════════════════╗");
+                                objFormato.pregunta("║Ingrese el costo por galón del combustible de " + unDeposito.label);
+                                objFormato.pregunta("╚══════════════════════════════════════════════════════╝");
                                 string strCosto = Console.ReadLine();
                                 // Valida que la cantidad ingresada de quetzales sea un número real
                                 if (objValidador.esNumeroDouble(strCosto))
@@ -448,7 +461,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                         break;
                     default:
                         // Muestra mensaje de error en caso de haber ingresado una opción no válida
-                        objFormato.mensajeError("Opción inválida");
+                        objFormato.mensajeError(" ***ERROR*** Opción no válida");
                         Console.ResetColor();
                         Console.Clear();
                         break;
@@ -518,7 +531,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                                             break;
                                         default:
                                             // Si el usuario no selecciona una opción válida, le solicita ingresarlo nuevamente
-                                            objFormato.mensajeError("Debe ingresar una opción válida");
+                                            objFormato.mensajeError(" ***ERROR*** Opción no válida");
                                             break;
                                     }
                                 }
@@ -534,11 +547,10 @@ namespace Proyecto1_Mynor_Xico_1051916
                         // Si el usuario selecciona la opción 2, se realizará una venta automática con un archivo de texto
                         opcionValida = true;
                         ventaAutomatica();
-                        Console.WriteLine("Programar venta automática de combustible");
                         break;
                     default:
                         // Si el usuario no selecciona la opción 1 o 2, se mostrará un mensaje de error y procederá a solicitar nuevamente el resultado
-                        objFormato.mensajeError("Debe seleccionar una opción válida");
+                        objFormato.mensajeError(" ***ERROR*** Opción no válida");
                         Console.Clear();
                         break;
                 }
@@ -553,7 +565,9 @@ namespace Proyecto1_Mynor_Xico_1051916
             do
             {
                 // Permite al usuario seleccionar si desea ingresar al proces de ventas
-                objFormato.pregunta("¿Desea entrar al proceso de ventas?");
+                objFormato.pregunta("╔═══════════════════════════════════╗");
+                objFormato.pregunta("║¿Desea entrar al proceso de ventas?║");
+                objFormato.pregunta("╚═══════════════════════════════════╝");
                 objMenu1.EscribirMenuSecundario2ST();
                 string opcion = Console.ReadLine();
                 switch (opcion)
@@ -573,7 +587,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                         break;
                     default:
                         Console.ResetColor();
-                        objFormato.mensajeError("Opción Inválida");
+                        objFormato.mensajeError("  ***ERROR*** Opción no válida");
                         break;
                 }
                 // Limpia la consola
@@ -594,24 +608,27 @@ namespace Proyecto1_Mynor_Xico_1051916
                 opcionValida = false;
                 MostrarCombustible();
                 MostrarPrecios();
-                objFormato.pregunta("¿Qué bomba desea utilizar?");
+                objFormato.pregunta("╔══════════════════════════╗");
+                objFormato.pregunta("║¿Qué bomba desea utilizar?║");
+                objFormato.pregunta("╚══════════════════════════╝");
                 objMenu3.EscribiRmenuSecundario7ST();
                 string opcion = Console.ReadLine();
                 Console.ResetColor();
                 Console.Clear();
                 Deposito depositoAUsar = new Deposito();
                 int tipoDeVenta;
-                MostrarPrecios();
-                MostrarCombustibleVenta();
                 switch (opcion)
                 {
+
                     case "1":
                     #region Venta con Bomba 1
                         opcionValida = true;
-                        objFormato.mensajeBienvenida("Galones Consumidos");
-                        objFormato.escribirContenido("Total en galones consumidos de esta bomba: " + objBomba1.combustibleConsumido);
-                        objFormato.mensajeBienvenida("Quetzales Consumidos");
-                        objFormato.escribirContenido("Total en quetzales consumidos de esta bomba: " + string.Format("{0:0.00}", (objBomba1.dineroConsumido)));
+                        objFormato.escribirTitulo("Venta Manual de Combustible");
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("   ╔══════════════════════════════════════════════════════╗");
+                        Console.WriteLine("   ║Total en galones consumidos de esta bomba: " + Math.Round(objBomba1.combustibleConsumido), 2);
+                        Console.WriteLine("   ║Total consumido de esta bomba en quetzales: Q" + string.Format("{0:0.00}", (objBomba1.dineroConsumido)));
+                        Console.WriteLine("   ╚══════════════════════════════════════════════════════╝");
                         Console.ReadKey();
                         Console.Clear();
                         depositoAUsar = solicitarTipoCombustibleVenta();
@@ -623,10 +640,12 @@ namespace Proyecto1_Mynor_Xico_1051916
                     case "2":
                     #region Venta con Bomba 2
                         opcionValida = true;
-                        objFormato.mensajeBienvenida("Galones Consumidos");
-                        objFormato.escribirContenido("Total en galones consumidos de esta bomba: " + objBomba2.combustibleConsumido);
-                        objFormato.mensajeBienvenida("Quetzales Consumidos");
-                        objFormato.escribirContenido("Total en quetzales consumidos de esta bomba: " + string.Format("{0:0.00}", (objBomba2.dineroConsumido)));
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("   ╔══════════════════════════════════════════════════════╗");
+                        Console.WriteLine("   ║Total en galones consumidos de esta bomba: " + Math.Round(objBomba2.combustibleConsumido, 2));
+                        Console.WriteLine("   ║Quetzales Consumidos");
+                        Console.WriteLine("   ║Total en quetzales consumidos de esta bomba: Q" + string.Format("{0:0.00}", (objBomba2.dineroConsumido)));
+                        Console.WriteLine("   ╚══════════════════════════════════════════════════════╝");
                         Console.ReadKey();
                         Console.Clear();
                         depositoAUsar = solicitarTipoCombustibleVenta();
@@ -637,10 +656,12 @@ namespace Proyecto1_Mynor_Xico_1051916
                     case "3":
                     #region Venta con Bomba 3
                         opcionValida = true;
-                        objFormato.mensajeBienvenida("Galones Consumidos");
-                        objFormato.escribirContenido("Total en galones consumidos de esta bomba: " + objBomba3.combustibleConsumido);
-                        objFormato.mensajeBienvenida("Quetzales Consumidos");
-                        objFormato.escribirContenido("Total en quetzales consumidos de esta bomba: " + string.Format("{0:0.00}", (objBomba3.dineroConsumido)));
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("   ╔══════════════════════════════════════════════════════╗");
+                        Console.WriteLine("   ║Total en galones consumidos de esta bomba: " + Math.Round(objBomba3.combustibleConsumido, 2));
+                        Console.WriteLine("   ║Quetzales Consumidos");
+                        Console.WriteLine("   ║Total en quetzales consumidos de esta bomba: Q" + string.Format("{0:0.00}", (objBomba3.dineroConsumido)));
+                        Console.WriteLine("   ╚══════════════════════════════════════════════════════╝");
                         Console.ReadKey();
                         Console.Clear();
                         depositoAUsar = solicitarTipoCombustibleVenta();
@@ -651,10 +672,12 @@ namespace Proyecto1_Mynor_Xico_1051916
                     case "4":
                     #region Venta con Bomba 4
                         opcionValida = true;
-                        objFormato.mensajeBienvenida("Galones Consumidos");
-                        objFormato.escribirContenido("Total en galones consumidos de esta bomba: " + objBomba4.combustibleConsumido);
-                        objFormato.mensajeBienvenida("Quetzales Consumidos");
-                        objFormato.escribirContenido("Total en quetzales consumidos de esta bomba: " + string.Format("{0:0.00}", (objBomba4.dineroConsumido)));
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("   ╔══════════════════════════════════════════════════════╗");
+                        Console.WriteLine("   ║Total en galones consumidos de esta bomba: " + Math.Round(objBomba4.combustibleConsumido, 2));
+                        Console.WriteLine("   ║Quetzales Consumidos");
+                        Console.WriteLine("   ║Total en quetzales consumidos de esta bomba: Q" + string.Format("{0:0.00}", (objBomba4.dineroConsumido)));
+                        Console.WriteLine("   ╚══════════════════════════════════════════════════════╝");
                         Console.ReadKey();
                         Console.Clear();
                         depositoAUsar = solicitarTipoCombustibleVenta();
@@ -665,10 +688,11 @@ namespace Proyecto1_Mynor_Xico_1051916
                     case "5":
                     #region Venta con Bomba 5
                         opcionValida = true;
-                        objFormato.mensajeBienvenida("Galones Consumidos");
-                        objFormato.escribirContenido("Total en galones consumidos de esta bomba: " + objBomba5.combustibleConsumido);
-                        objFormato.mensajeBienvenida("Quetzales Consumidos");
-                        objFormato.escribirContenido("Total en quetzales consumidos de esta bomba: " + string.Format("{0:0.00}", (objBomba5.dineroConsumido)));
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("   ╔══════════════════════════════════════════════════════╗");
+                        Console.WriteLine("   ║Total en galones consumidos de esta bomba: " + Math.Round(objBomba5.combustibleConsumido, 2));
+                        Console.WriteLine("   ║Total en quetzales consumidos de esta bomba: Q" + string.Format("{0:0.00}", (objBomba5.dineroConsumido)));
+                        Console.WriteLine("   ╚══════════════════════════════════════════════════════╝");
                         Console.ReadKey();
                         Console.Clear();
                         depositoAUsar = solicitarTipoCombustibleVenta();
@@ -679,10 +703,11 @@ namespace Proyecto1_Mynor_Xico_1051916
                     case "6":
                     #region Venta con Bomba 6
                         opcionValida = true;
-                        objFormato.mensajeBienvenida("Galones Consumidos");
-                        objFormato.escribirContenido("Total en galones consumidos de esta bomba: " + objBomba6.combustibleConsumido);
-                        objFormato.mensajeBienvenida("Quetzales Consumidos");
-                        objFormato.escribirContenido("Total en quetzales consumidos de esta bomba: " + string.Format("{0:0.00}", (objBomba6.dineroConsumido)));
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("   ╔══════════════════════════════════════════════════════╗");
+                        Console.WriteLine("   ║Total en galones consumidos de esta bomba: " + Math.Round(objBomba6.combustibleConsumido, 2));
+                        Console.WriteLine("   ║Total en quetzales consumidos de esta bomba: Q" + string.Format("{0:0.00}", (objBomba6.dineroConsumido)));
+                        Console.WriteLine("   ╚══════════════════════════════════════════════════════╝");
                         Console.ReadKey();
                         Console.Clear();
                         depositoAUsar = solicitarTipoCombustibleVenta();
@@ -693,10 +718,12 @@ namespace Proyecto1_Mynor_Xico_1051916
                     case "7":
                     #region Venta con Bomba 7
                         opcionValida = true;
-                        objFormato.mensajeBienvenida("Galones Consumidos");
-                        objFormato.escribirContenido("Total en galones consumidos de esta bomba: " + objBomba7.combustibleConsumido);
-                        objFormato.mensajeBienvenida("Quetzales Consumidos");
-                        objFormato.escribirContenido("Total en quetzales consumidos de esta bomba: " + string.Format("{0:0.00}", (objBomba7.dineroConsumido)));
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("   ╔══════════════════════════════════════════════════════╗");
+                        Console.WriteLine("   ║Total en galones consumidos de esta bomba: " + Math.Round(objBomba7.combustibleConsumido, 2));
+                        Console.WriteLine("   ║Quetzales Consumidos");
+                        Console.WriteLine("   ║Total en quetzales consumidos de esta bomba: Q" + string.Format("{0:0.00}", (objBomba7.dineroConsumido)));
+                        Console.WriteLine("   ╚══════════════════════════════════════════════════════╝");
                         Console.ReadKey();
                         Console.Clear();
                         depositoAUsar = solicitarTipoCombustibleVenta();
@@ -705,11 +732,13 @@ namespace Proyecto1_Mynor_Xico_1051916
                         break;
                     #endregion
                     default:
-                        objFormato.mensajeError("¡Debe ingresar una opción válida!");
+                        objFormato.mensajeError("  ***ERROR*** Opción no válida");
                         break;
                 }
             } while (!opcionValida);
         }
+
+
         /// <summary>
         ///  Método que se utiliza para solicitar el tipo de combustible que se utilizará en la venta
         /// </summary>
@@ -719,12 +748,11 @@ namespace Proyecto1_Mynor_Xico_1051916
             bool opcionValida = false;
             Deposito depositoSeleccionado = new Deposito();
             do
-            {   objFormato.mensajeBienvenida("Galones Consumidos");
-                objFormato.escribirContenido("Total en galones consumidos de esta bomba: " + objBomba1.combustibleConsumido);
-                objFormato.mensajeBienvenida("Quetzales Consumidos");
-                objFormato.escribirContenido("Total en quetzales consumidos de esta bomba: " + string.Format("{0:0.00}", (objBomba1.dineroConsumido)));
+            {   
                 MostrarCombustibleVenta();
-                objFormato.pregunta("¿Qué tipo de combustible desea vender?");
+                objFormato.pregunta("╔══════════════════════════════════════╗");
+                objFormato.pregunta("║¿Qué tipo de combustible desea vender?║");
+                objFormato.pregunta("╚══════════════════════════════════════╝");
                 objMenu4.EscribirMenuSecundario3();
                 string opcion = Console.ReadLine();
                 Console.ResetColor();
@@ -771,7 +799,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                         break;
                     default:
                         // Si no seleccionan una opción válida, se borra la consola y solicita nuevamente
-                        objFormato.mensajeError("No seleccionó un tipo de combustible válido!");
+                        objFormato.mensajeError("  ***ERROR*** Opción no válida");
                         depositoSeleccionado = objDepositoDiesel;
                         break;
                 }
@@ -809,7 +837,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                         tipoVenta = 2;
                         break;
                     default:
-                        objFormato.mensajeError("Por favor seleccione una opción válida");
+                        objFormato.mensajeError(" ***ERROR*** Opción no válida");
                         break;
                 }
             } while (!opcionValida);
@@ -820,7 +848,20 @@ namespace Proyecto1_Mynor_Xico_1051916
         /// </summary>
         private void ventaAutomatica()
         {
-            objManejoDatos.CargaryEjecutarDatosArchivo(@"C:\Ejemplo.txt", gasolineraVentas);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("> Por favor ingrese la dirección y nombre del archivo para realizar la venta:\n ");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            try {
+                objManejoDatos.CargaryEjecutarDatosArchivo(@"" + Console.ReadLine(), gasolineraVentas);
+                Console.ResetColor();
+            }
+            catch
+            {
+                objFormato.mensajeError("Ocurrió un error al abrir el archivo.");
+                objFormato.mensajeError("Por verifique que la dirección sea la indicada y que se encuentre escrita en el formato adecuado.");
+                objFormato.mensajeError("Si el error persiste verifique que otra aplicación no tenga abierto el archivo.");
+                System.Threading.Thread.Sleep(2800);
+            }
         }
         /// <summary>
         /// Método utilizado para calcular las ventas de la gasolinera
@@ -846,8 +887,11 @@ namespace Proyecto1_Mynor_Xico_1051916
             {
                 Console.Clear();
                 //Pregunta al usuario si desea ingresar combustible a los depósitos
+                objFormato.escribirTitulo("  Ingreso de Gasolina a los depósitos  ");
                 MostrarCombustible();
-                objFormato.pregunta("Desea ingresar combustible a los depósitos");
+                objFormato.pregunta("╔════════════════════════════════════════════╗");
+                objFormato.pregunta("║¿Desea ingresar combustible a los depósitos?║");
+                objFormato.pregunta("╚════════════════════════════════════════════╝");
                 objMenu1.EscribirMenuSecundario2ST();
                 string strOpcion = Console.ReadLine();
                 switch (strOpcion)
@@ -867,7 +911,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                         break;
                     default:
                         Console.ResetColor();
-                        objFormato.mensajeError("Ingrese una opción válida");
+                        objFormato.mensajeError(" ***ERROR*** Opción no válida");
                         Console.Clear();
                         break;
                 }
@@ -881,7 +925,7 @@ namespace Proyecto1_Mynor_Xico_1051916
             bool opcionValida = false;
             do {
                 // Preunta al usuario si desea cambiar el precio de algun depósito
-                objFormato.escribirTitulo("Precios de gasolina por depósitos");
+                objFormato.escribirTitulo("Definir Precios de gasolina por depósitos");
                 MostrarPrecios();
                 objFormato.pregunta("¿Desea cambiar el precio por depósitos?");
                 objMenu1.EscribirMenuSecundario2ST();
@@ -907,7 +951,7 @@ namespace Proyecto1_Mynor_Xico_1051916
                     default:
                         // Si no selecciona 1 o 2, se solicita de nuevo una opción
                         Console.ResetColor();
-                        objFormato.mensajeError("Ingrese una opción válida");
+                        objFormato.mensajeError(" ***ERROR*** Opción no válida");
                         Console.Clear();
                         break;
                 }

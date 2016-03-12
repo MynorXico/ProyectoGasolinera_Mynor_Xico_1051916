@@ -16,6 +16,8 @@ namespace Proyecto1_Mynor_Xico_1051916
         //Instanciación de objetos Bomba
         Bomba bomba1, bomba2, bomba3, bomba4, bomba5, bomba6, bomba7;
 
+        Formato objFormato = new Formato();
+
 
         public Gasolinera(Deposito d1, Deposito d2, Deposito d3, Bomba b1, Bomba b2, Bomba b3, Bomba b4, Bomba b5, Bomba b6, Bomba b7)
         {
@@ -60,7 +62,6 @@ namespace Proyecto1_Mynor_Xico_1051916
                             bomba5._depositoAUsar = diesel;
                             bomba6._depositoAUsar = diesel;
                             bomba7._depositoAUsar = diesel;
-
                             break;
                         case 2:
                             bomba1._depositoAUsar = regular;
@@ -81,35 +82,43 @@ namespace Proyecto1_Mynor_Xico_1051916
                             bomba7._depositoAUsar = super;
                             break;
                             #endregion
-
+                    
                     }
                     // Realiza la venta por combustible
                     #region Venta por cantidad de Combustible
                     if (dblCantidadCombustible != -1)
                     {
-                        switch (intBomba)
+                        if (bomba1._depositoAUsar.cantCombustible > bomba1._depositoAUsar.inventarioMinimo)
                         {
-                            case 1:
-                                bomba1.venderPorGalones(dblCantidadCombustible);
-                                break;
-                            case 2:
-                                bomba2.venderPorGalones(dblCantidadCombustible);
-                                break;
-                            case 3:
-                                bomba3.venderPorGalones(dblCantidadCombustible);
-                                break;
-                            case 4:
-                                bomba4.venderPorGalones(dblCantidadCombustible);
-                                break;
-                            case 5:
-                                bomba5.venderPorGalones(dblCantidadCombustible);
-                                break;
-                            case 6:
-                                bomba6.venderPorGalones(dblCantidadCombustible);
-                                break;
-                            case 7:
-                                bomba7.venderPorGalones(dblCantidadCombustible);
-                                break;
+                            switch (intBomba)
+                            {
+                                case 1:
+                                    bomba1.venderPorGalones(dblCantidadCombustible);
+                                    break;
+                                case 2:
+                                    bomba2.venderPorGalones(dblCantidadCombustible);
+                                    break;
+                                case 3:
+                                    bomba3.venderPorGalones(dblCantidadCombustible);
+                                    break;
+                                case 4:
+                                    bomba4.venderPorGalones(dblCantidadCombustible);
+                                    break;
+                                case 5:
+                                    bomba5.venderPorGalones(dblCantidadCombustible);
+                                    break;
+                                case 6:
+                                    bomba6.venderPorGalones(dblCantidadCombustible);
+                                    break;
+                                case 7:
+                                    bomba7.venderPorGalones(dblCantidadCombustible);
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            objFormato.mensajeError("El depósito que indica el archivo ("+diesel.label+") no pede realizar la venta");
+                            objFormato.mensajeError("   La cantidad de combustible es igual o inferior a su inventario mínimo");
                         }
                     }
                     #endregion
@@ -118,31 +127,39 @@ namespace Proyecto1_Mynor_Xico_1051916
                     #region Venta por cantidad de quetzales
                     if (dblDineroVenta != -1)
                     {
-                        switch (intBomba)
+                        if (bomba1._depositoAUsar.cantCombustible > bomba1._depositoAUsar.inventarioMinimo)
                         {
-                            case 1:
-                                bomba1.venderPorQuetzales(dblDineroVenta);
-                                break;
-                            case 2:
-                                bomba2.venderPorQuetzales(dblDineroVenta);
-                                break;
-                            case 3:
-                                bomba3.venderPorQuetzales(dblDineroVenta);
-                                break;
-                            case 4:
-                                bomba4.venderPorQuetzales(dblDineroVenta);
-                                break;
-                            case 5:
-                                bomba5.venderPorQuetzales(dblDineroVenta);
-                                break;
-                            case 6:
-                                bomba6.venderPorQuetzales(dblDineroVenta);
-                                break;
-                            case 7:
-                                bomba7.venderPorQuetzales(dblDineroVenta);
-                                break;
+                            switch (intBomba)
+                            {
+                                case 1:
+                                    bomba1.venderPorQuetzales(dblDineroVenta);
+                                    break;
+                                case 2:
+                                    bomba2.venderPorQuetzales(dblDineroVenta);
+                                    break;
+                                case 3:
+                                    bomba3.venderPorQuetzales(dblDineroVenta);
+                                    break;
+                                case 4:
+                                    bomba4.venderPorQuetzales(dblDineroVenta);
+                                    break;
+                                case 5:
+                                    bomba5.venderPorQuetzales(dblDineroVenta);
+                                    break;
+                                case 6:
+                                    bomba6.venderPorQuetzales(dblDineroVenta);
+                                    break;
+                                case 7:
+                                    bomba7.venderPorQuetzales(dblDineroVenta);
+                                    break;
+                            }
+                            #endregion
                         }
-                        #endregion
+                        else
+                        {
+                            objFormato.mensajeError("El depósito que indica el archivo (" + diesel.label + ") no pede realizar la venta");
+                            objFormato.mensajeError("   La cantidad de combustible es igual o inferior a su inventario mínimo");
+                        }
                     }
                 }
                 return true;

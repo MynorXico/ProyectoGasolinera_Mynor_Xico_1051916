@@ -80,18 +80,18 @@ namespace Proyecto1_Mynor_Xico_1051916
         {
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("*******************************************************************");
+            Console.WriteLine("╔════════════════════════════════╗");
             Console.ResetColor();
-            Console.WriteLine("Seleccione la opción que desea: ");
-            Console.WriteLine("     1. " + opcion1);
-            Console.WriteLine("     2. " + opcion2);
-            Console.WriteLine("     3. " + opcion3);
-            Console.WriteLine("     4. " + opcion4);
-            Console.WriteLine("     5. " + opcion5);
-            Console.WriteLine("     6. " + opcion6);
-            Console.WriteLine("     7. " + opcion7);
+            Console.WriteLine("║ Seleccione la opción que desea ║");
+            Console.WriteLine("║     1. " + opcion1+ "                 ║");
+            Console.WriteLine("║     2. " + opcion2+ "                 ║");
+            Console.WriteLine("║     3. " + opcion3+ "                 ║");
+            Console.WriteLine("║     4. " + opcion4+ "                 ║");
+            Console.WriteLine("║     5. " + opcion5+ "                 ║");
+            Console.WriteLine("║     6. " + opcion6+ "                 ║");
+            Console.WriteLine("║     7. " + opcion7+ "                 ║");
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("*******************************************************************");
+            Console.WriteLine("╚════════════════════════════════╝");
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Red;
         }
@@ -106,14 +106,14 @@ namespace Proyecto1_Mynor_Xico_1051916
         {
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("**********************************************************");
+            Console.WriteLine("╔══════════════════════════════════╗");
             Console.ResetColor();
-            Console.WriteLine("Seleccione la opción que desea: ");
-            Console.WriteLine("     1. " + opcion1);
-            Console.WriteLine("     2. " + opcion2);
-            Console.WriteLine("     3. " + opcion3);
+            Console.WriteLine("║Seleccione la opción que desea: ");
+            Console.WriteLine("║     1. " + opcion1);
+            Console.WriteLine("║     2. " + opcion2);
+            Console.WriteLine("║     3. " + opcion3);
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("*******************************************************************");
+            Console.WriteLine("╚══════════════════════════════════╝");
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Red;
         }
@@ -151,13 +151,13 @@ namespace Proyecto1_Mynor_Xico_1051916
         {
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("*******************************************************************");
+            Console.WriteLine("╔════════════════════════════════╗");
             Console.ResetColor();
-            Console.WriteLine("Seleccione la opción que desea: ");
-            Console.WriteLine("     1. " + opcion1);
-            Console.WriteLine("     2. " + opcion2);
+            Console.WriteLine("║Seleccione la opción que desea: ║");
+            Console.WriteLine("║     1. " + opcion1);
+            Console.WriteLine("║     2. " + opcion2);
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("*******************************************************************");
+            Console.WriteLine("╚════════════════════════════════╝");
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Red;
         }
@@ -172,11 +172,13 @@ namespace Proyecto1_Mynor_Xico_1051916
         public void escribirContenido(string contenido)
         {
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("********************************************************************************");
+            Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════════════╗");
+            Console.WriteLine("║");
             Console.ResetColor();
             Console.WriteLine(contenido);
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("********************************************************************************");
+            Console.WriteLine("║");
+            Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════════╝");
             Console.ResetColor();
         }
         /// <summary>
@@ -187,7 +189,7 @@ namespace Proyecto1_Mynor_Xico_1051916
         {
             Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Blue;
-            Console.WriteLine("                    " + titulo + "                ");
+            Console.WriteLine("                           " + titulo + "                      ");
             Console.ResetColor();
         }
         /// <summary>
@@ -207,7 +209,8 @@ namespace Proyecto1_Mynor_Xico_1051916
         /// <param name="mensaje"></param>
         public void mensajeExito(string mensaje)
         {
-            Console.Beep();
+            Console.Beep(500, 120);
+            Console.Beep(1000, 120);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(mensaje);
             Console.ResetColor();
@@ -229,8 +232,8 @@ namespace Proyecto1_Mynor_Xico_1051916
         /// <param name="mensaje"></param>
         public void mensajeError(string mensaje)
         {
-            Console.Beep();
-            Console.Beep();
+            Console.Beep(1000, 120);
+            Console.Beep(500, 120);
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("      " + mensaje);
             System.Threading.Thread.Sleep(900);
