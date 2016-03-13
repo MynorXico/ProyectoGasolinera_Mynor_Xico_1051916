@@ -207,10 +207,11 @@ namespace Proyecto1_Mynor_Xico_1051916
                             {
                                 case "1":
                                     opcionValida1 = true;
+                                    double anterior = unDeposito.cantCombustible;
                                     _combustibleConsumido += unDeposito.cantCombustible;
                                     _dineroConsumido += unDeposito.cantCombustible * unDeposito.precioPorGalon;
                                     unDeposito.venderCombustible(unDeposito.cantCombustible);
-                                    objFormato.mensajeExito("Se han vendido " + unDeposito.cantCombustible + " galones (Q " + string.Format("{0:0.00}",(unDeposito.cantCombustible*unDeposito.precioPorGalon))+") de  " + unDeposito.label + " desde la" + label);
+                                    objFormato.mensajeExito("Se han vendido " + anterior + " galones (Q " + string.Format("{0:0.00}",(anterior*unDeposito.precioPorGalon))+") de  " + unDeposito.label + " desde la" + label);
                                     break;
                                 case "2":
                                     opcionValida1 = true;
@@ -246,10 +247,11 @@ namespace Proyecto1_Mynor_Xico_1051916
                         {
                             case "1":
                                 opcionValida = true;
+                                double anterior = unDeposito.cantCombustible;
                                 unDeposito.venderCombustible(unDeposito.cantCombustible);
                                 _combustibleConsumido += unDeposito.cantCombustible / unDeposito.precioPorGalon;
                                 _dineroConsumido += unDeposito.cantCombustible;
-                                objFormato.mensajeExito("Se han vendido " + unDeposito.cantCombustible + " galones(Q " + string.Format("{0:0.00}", (unDeposito.cantCombustible*unDeposito.precioPorGalon)) + ") de " + unDeposito.label + " desde la " + label);
+                                objFormato.mensajeExito("Se han vendido " + anterior + " galones(Q " + string.Format("{0:0.00}", (anterior*unDeposito.precioPorGalon)) + ") de " + unDeposito.label + " desde la " + label);
                                 break;
                             case "2":
                                 opcionValida = true;

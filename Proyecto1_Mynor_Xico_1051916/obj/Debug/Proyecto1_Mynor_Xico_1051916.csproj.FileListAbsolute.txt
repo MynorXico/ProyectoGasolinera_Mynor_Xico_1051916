@@ -22,3 +22,12 @@ C:\Users\Sony i3\Dropbox\ProyectoGasolinera_Mynor_Xico_1051916-master\Proyecto1_
 C:\Users\Sony i3\Dropbox\ProyectoGasolinera_Mynor_Xico_1051916-master\Proyecto1_Mynor_Xico_1051916\obj\Debug\Proyecto1_Mynor_Xico_1051916.csprojResolveAssemblyReference.cache
 C:\Users\Sony i3\Dropbox\ProyectoGasolinera_Mynor_Xico_1051916-master\Proyecto1_Mynor_Xico_1051916\bin\Debug\Proyecto1_Mynor_Xico_1051916.exe
 C:\Users\Sony i3\Dropbox\ProyectoGasolinera_Mynor_Xico_1051916-master\Proyecto1_Mynor_Xico_1051916\bin\Debug\Proyecto1_Mynor_Xico_1051916.pdb
+C:\Users\Sony i3\Dropbox\URL\ProyectoGasolinera\ProgramaFuente\Proyecto1_Mynor_Xico_1051916\bin\Debug\Proyecto1_Mynor_Xico_1051916.exe.config
+C:\Users\Sony i3\Dropbox\URL\ProyectoGasolinera\ProgramaFuente\Proyecto1_Mynor_Xico_1051916\obj\Debug\Proyecto1_Mynor_Xico_1051916.exe
+C:\Users\Sony i3\Dropbox\URL\ProyectoGasolinera\ProgramaFuente\Proyecto1_Mynor_Xico_1051916\obj\Debug\Proyecto1_Mynor_Xico_1051916.pdb
+G:\Download\ProyectoGasolinera\ProgramaFuente\Proyecto1_Mynor_Xico_1051916\bin\Debug\Proyecto1_Mynor_Xico_1051916.exe.config
+G:\Download\ProyectoGasolinera\ProgramaFuente\Proyecto1_Mynor_Xico_1051916\obj\Debug\Proyecto1_Mynor_Xico_1051916.exe
+G:\Download\ProyectoGasolinera\ProgramaFuente\Proyecto1_Mynor_Xico_1051916\obj\Debug\Proyecto1_Mynor_Xico_1051916.pdb
+G:\Download\ProyectoGasolinera\ProgramaFuente\Proyecto1_Mynor_Xico_1051916\bin\Debug\Proyecto1_Mynor_Xico_1051916.exe
+G:\Download\ProyectoGasolinera\ProgramaFuente\Proyecto1_Mynor_Xico_1051916\bin\Debug\Proyecto1_Mynor_Xico_1051916.pdb
+G:\Download\ProyectoGasolinera\ProgramaFuente\Proyecto1_Mynor_Xico_1051916\obj\Debug\Proyecto1_Mynor_Xico_1051916.csprojResolveAssemblyReference.cache

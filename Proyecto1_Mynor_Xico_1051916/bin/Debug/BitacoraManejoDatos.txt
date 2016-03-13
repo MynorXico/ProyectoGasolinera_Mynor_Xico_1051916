@@ -6,3 +6,11 @@
 3/11/2016 10:48:01 PM Acción ejecutada correctamente. Línea: 6
 3/11/2016 10:48:01 PM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
 
+3/11/2016 11:13:50 PM Inicio Carga Archivo: C:\Ejemplo.txt ------------------------------- 
+3/11/2016 11:13:52 PM Acción ejecutada correctamente. Línea: 2
+3/11/2016 11:13:53 PM Acción ejecutada correctamente. Línea: 3
+3/11/2016 11:13:53 PM Acción ejecutada correctamente. Línea: 4
+3/11/2016 11:13:54 PM Acción ejecutada correctamente. Línea: 5
+3/11/2016 11:13:56 PM Acción ejecutada correctamente. Línea: 6
+3/11/2016 11:13:56 PM Finalización carga Archivo: C:\Ejemplo.txt ------------------------------- 
+
